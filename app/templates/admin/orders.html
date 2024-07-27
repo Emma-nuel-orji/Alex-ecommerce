@@ -1,0 +1,175 @@
+{% extends 'admin/admin.html' %}
+{% block content %}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">USERS</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="{{ url_for('main.index') }}" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Back to Home page</a>
+                    </div>
+                </div>
+                 {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                           {% for category, message in messages %}
+                               <div class="alert alert-{{ category }}">
+                                   {{ message }}
+                               </div>
+                           {% endfor %}
+                      {% endif %}
+                  {% endwith %}
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Basic Table</h4>
+                                <h6 class="card-subtitle">these are current products <code>ordered</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th> FIRST_NAME</th>
+                                                <th> FIRST_NAME</th>
+                                                <th>EMAIL</th>
+                                                <th>PHONE</th>
+                                                <th>COUNTRY</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for user in checkout %}
+                                            <tr>
+                                                <td>{{ user.id }}</td>
+                                                <td>{{ user.firstname }}</td>
+                                                <td>{{ user.lastname }}</td>
+                                                <td>{{ user.email }}</td>
+                                                <td>{{ user.phone }}</td>
+                                                <td>{{ user.country }}</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>CITY</th>
+                                                <th>STREET </th>
+                                                <th>BUILDING</th>
+                                                <th>ZIP</th>
+                                                <th>DATE</th>
+                                                <th>INVOICE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>{{ user.city }}</td>
+                                                <td>{{ user.street }}</td>
+                                                <td>{{ user.building }}</td>
+                                                <td>{{ user.zip }}</td>
+                                                <td>{{ user.date_created }}</td>
+                                                <td>{{ user.invoice }}</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>CUSTOMER_ID</th>
+                                                <th>TOTAL-PRICE</th>
+                                                <th>ORDERS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>{{ user.customer_id }}</td>
+                                                <td>{{ user.grandtotal }}</td>
+                                                <td>{{ user.orders }} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>DELETE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                 <td>
+                                                    <div class="dropdown">
+                                                        <a href="/catalog" class="dropdown-toggle"
+                                                           data-toggle="dropdown" role="button" aria-haspopup="true"
+                                                           aria-expanded="false">ACTION <span class="caret"></span></a>
+                                                        <div class="dropdown-menu">
+                                                            <li class="bx bx-trash me-1"><a href="{{ url_for('order.delete_order',order_id=user.id) }}">DELETE</a></li>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- ============================================================== -->
+                <!-- End Notification And Feeds -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2022 Adminwrap by Sir Trendy.com </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+
+{% endblock content %}

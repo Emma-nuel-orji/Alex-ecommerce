@@ -1,0 +1,354 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <hr class="offset-md">
+
+    <div class="box">
+      <div class="container">
+          <h1>Checkout order</h1>
+      </div>
+    </div>
+    <hr class="offset-md">
+
+    <div class="container">
+      <div class="row">
+          <form class="join" action="" method="POST" enctype="multipart/form-data">
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-body">
+
+                <div class="checkout">
+                    <div class="addresses box-select">
+                      {{ form.hidden_tag() }}
+                        <h2> 1. Delevery address</h2>
+                        <hr class="offset-sm">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.firstname.label(class='form-control-label') }}
+                            {% if form.firstname.errors %}
+                                {{ form.firstname(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.firstname.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.firstname(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.lastname.label(class='form-control-label') }}
+                            {% if form.lastname.errors %}
+                                {{ form.lastname(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.lastname.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.lastname(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.email.label(class='form-control-label') }}
+                            {% if form.email.errors %}
+                                {{ form.email(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.email(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.phone.label(class='form-control-label') }}
+                            {% if form.phone.errors %}
+                                {{ form.phone(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.phone.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.phone(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <hr class="offset-sm">
+                        <a type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                         Click here to Add your address
+                        </a>
+                        <hr class="offset-sm">
+                        <div class="collapse" id="collapseExample">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row group">
+                                        <div class="col-sm-4"><h2 class="h4">Please enter your country</h2></div>
+                                        <div class="col-sm-8">
+                                          <!-- <input type="text" class="form-control" name="country" value="" required="" placeholder="" /> -->
+
+                                          <div class="group-select justify" tabindex='1'>
+                                            <div class="col-sm-12">
+                                              <div class="form-group">
+                                                {{ form.country.label(class='form-control-label') }}
+                                                {% if form.country.errors %}
+                                                    {{ form.country(class='form-control form-control-lg is-invalid') }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.country.errors %}
+                                                            <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                     {{ form.country(class='form-control form-control-lg') }}
+                                                {% endif %}
+                                            </div>
+                                            </div>   
+                                          </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="offset-sm">
+                                    <div class="row">
+                                      <div class="col-sm-4">
+                                        
+                                          <div class="form-group">
+                                            {{ form.city.label(class='form-control-label') }}
+                                            {% if form.city.errors %}
+                                                {{ form.city(class='form-control form-control-lg is-invalid') }}
+                                                <div class="invalid-feedback">
+                                                    {% for error in form.city.errors %}
+                                                        <span>{{ error }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                            {% else %}
+                                                 {{ form.city(class='form-control form-control-lg') }}
+                                            {% endif %}
+                                        </div>
+                                        
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <hr class="offset-sm visible-xs">
+                                      
+
+                                        <div class="form-group">
+                                          {{ form.street.label(class='form-control-label') }}
+                                          {% if form.street.errors %}
+                                              {{ form.street(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.street.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.street(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                      </div>
+                                      </div>
+                                      <div class="col-sm-2">
+                                        <hr class="offset-sm visible-xs">
+                                       
+
+                                        <div class="form-group">
+                                          {{ form.building.label(class='form-control-label') }}
+                                          {% if form.building.errors %}
+                                              {{ form.building(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.building.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.building(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                      </div>
+                                      </div>
+                                      <div class="col-sm-2">
+                                        <hr class="offset-sm visible-xs">
+                                      
+
+                                        <div class="form-group">
+                                          {{ form.zip.label(class='form-control-label') }}
+                                          {% if form.zip.errors %}
+                                              {{ form.zip(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.zip.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.zip(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                      </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value="">
+                            Use as billing address
+                          </label>
+                        </div>
+
+                        <hr class="offset-sm">
+                        <hr>
+                    </div>
+
+                    <div class="delivery box-select">
+                        <h2> 2. Delevery option </h2>
+                        <hr class="offset-sm">
+                        <p>We will try our best to deliver your order on the specified date.</p>
+                        <div class="col-sm-12">
+                            <p>delivery date (optional)</p>
+
+                            <div class="form-group">
+                              {{ form.date_created.label(class='form-control-label') }}
+                              {% if form.date_created.errors %}
+                                  {{ form.date_created(class='form-control form-control-lg is-invalid') }}
+                                  <div class="invalid-feedback">
+                                      {% for error in form.date_created.errors %}
+                                          <span>{{ error }}</span>
+                                      {% endfor %}
+                                  </div>
+                              {% else %}
+                                   {{ form.date_created(class='form-control form-control-lg') }}
+                              {% endif %}
+                          </div>
+                          </div>
+
+
+                        <hr class="offset-sm">
+                        <hr>
+                    </div>
+
+                    <div class="payment box-select">
+                        <h2> 3. Payment </h2>
+                        <hr class="offset-sm">
+                        
+                        <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="box-default sm-padding">
+                                    <hr class="offset-sm">
+                                    <img src="../static/img/payments/stripe.jpg" title="stripe" alt="stripe" />
+                                    <span>&nbsp;&nbsp;1% Service fee</span>
+                                    <div class="check">
+                                        <i class="ion-checkmark-round"></i>
+                                    </div>
+                                    <hr class="offset-sm">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <hr class="offset-sm">
+                        <hr>
+                    </div>
+
+                    <div class="payment box-select">
+                        <h2> 4. Remark </h2>
+                        <hr class="offset-sm">
+                        <div class="form-group">
+                          {{ form.description.label(class='form-control-label') }}
+                          {% if form.description.errors %}
+                              {{ form.description(class='form-control form-control-lg is-invalid') }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.description.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                               {{ form.description(class='form-control form-control-lg') }}
+                          {% endif %}
+                      </div>
+                        <hr class="offset-sm">
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-8 col-md-4">
+            <hr class="offset-sm visible-sm">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2 class="no-margin">Summary</h2>
+                  <hr class="offset-md">
+                   {% for key , product in session['Shoppingcart'].items() %}
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-6">
+                              <p>{{product.name}}</p>
+                          </div>
+                          <div class="col-xs-6">
+                              <p><b>${{product.price}}</b></p>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+                  <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p>Subtotal ({{session['Shoppingcart']|length}} items)</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p><b>${{grandtotal}}</b></p>
+                        </div>
+                    </div>
+                </div>
+                  <div class="checkboxes">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                          Coupon
+                        </label>
+                      </div>
+                  </div>
+                  <hr>
+
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-6">
+                              <h3 class="no-margin">Total sum</h3>
+                          </div>
+                          <div class="col-xs-6">
+                              <h3 class="no-margin">${{grandtotal}}</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <hr class="offset-md">
+                    <div class="btn btn-primary btn-lg justify">
+                        <i class="ion-compose"></i>&nbsp;&nbsp;{{ form.submit(class='btn btn-primary') }}
+                    </div>
+                </div>
+              </div>
+          </div>
+           </form>
+         <div class="col-sm-8 col-md-4">
+            <hr class="offset-sm visible-sm">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                     <form action="{{url_for('main.get_pdf', invoice=orders.invoice)}}" method="post">
+
+                         <button type="subnit" class="btn btn-danger btn-sm mr-4 float-right">
+                             Get PDF
+                         </button>
+                     </form>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+
+{% endblock content %}

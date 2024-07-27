@@ -1,0 +1,230 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <header>
+      <div class="carousel" data-count="3" data-current="2">
+        <!-- <button class="btn btn-control"></button> -->
+
+        <div class="items">
+          <div class="item" data-marker="1">
+            <img src="../static/img/carousel/bckg.jpg" alt="Background" class="background"/>
+
+            <div class="content">
+              <div class="outside-content">
+                <div class="inside-content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 align-center">
+                        <h1>New amazing laptops</h1>
+                        <p>Provide lightweight and powerull</p>
+                        <a href="{{url_for('carts.catalog')}}">More laptops ></a>
+                        <br><br>
+                      </div>
+                      <div class="col-sm-6 col-sm-offset-3 align-center">
+                        <img src="static/img/carousel/newlaptops.jpg" alt="Laptops"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item active" data-marker="2">
+            <img src="static/img/carousel/bckg.jpg" alt="Background" class="background"/>
+
+            <div class="content">
+              <div class="outside-content">
+                <div class="inside-content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-8 col-sm-offset-2 align-center">
+                        <img src="static/img/carousel/surfaces.jpg" alt="Surface Pro"/>
+                      </div>
+                      <div class="col-sm-12 align-center">
+                        <h1>8 Windows Hybrid Laptops</h1>
+                        <p>The laptop comes with an Intel i5 chip and 8GB of RAM.</p>
+                        <a href="{{ url_for('carts.catalog') }}">View surfaces ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item" data-marker="3">
+            <img src="../static/img/carousel/bckg.jpg" alt="Background" class="background"/>
+
+            <div class="content">
+              <div class="outside-content">
+                <div class="inside-content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-5 col-sm-offset-1 align-center">
+                        <img src="../static/img/carousel/ipadair2.jpg" alt="iPad Air 2" class="hidden-xs hidden-sm"/>
+                        <img src="../static/img/carousel/ipadair2m.jpg" alt="iPad Air 2" class="hidden-md hidden-lg"/>
+                      </div>
+                      <div class="col-sm-4 align-left">
+                        <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
+                        <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
+                        <h1>Luxury devices</h1>
+                        <br>
+                        
+                        <p>
+                          Luxury watches, business tablets and 3D touch: How Apple plans to stay ahead in mobile.
+                          When it comes to the brand’s latest iPhones, the biggest excitement isn’t focused on the addition of a rose gold coloured device but the new 3D touch sensors.
+                        </p>
+                        <a href="{{ url_for('carts.catalog') }}">View article ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="markers">
+          <li data-marker="1"><img src="../static/img/carousel/newlaptops.jpg" alt="Background"/></li>
+          <li data-marker="2" class="active"><img src="../static/img/carousel/surfaces.jpg" alt="Background"/></li>
+          <li data-marker="3"><img src="../static/img/carousel/ipadair2.jpg" alt="Background"/></li>
+        </ul>
+      </div>
+    </header>
+    <br><br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 align-center">
+          <a href="{{ url_for('blogs.gallery') }}">
+            <img src="../static/img/tiles/blog.jpg" alt="Blog" class="image"/>
+          </a>
+          <br><br>
+
+          <a href="{{ url_for('blogs.gallery')}}">Blog headlines</a>
+        </div>
+        <div class="col-sm-3 align-center">
+          <a href="{{ url_for('blogs.gallery') }}" data-gallery="#video" data-source="vimeo" data-id="110691368" data-id="110691368" data-title="Apple iPad Air" data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">
+            <img src="../static/img/tiles/video-apple.jpg" alt="New devices" class="image"/>
+          </a>
+          <br><br>
+
+          <a href="{{ url_for('blogs.gallery') }}" data-gallery="#video" data-source="vimeo" data-id="110691368" data-title="Apple iPad Air" data-description="So capable, you won’t want to put it down. So thin and light, you won’t have to.">New apple diveces</a>
+        </div>
+        <div class="col-sm-3 align-center">
+          <a href="{{ url_for('blogs.gallery') }}" data-gallery="#video" data-source="youtube" data-id="6g-ZIm0wge4" data-title="Best New Dell Laptops" data-description="Best of dell's laptops that you can consider buying in 2016. 4 Laptops are featured in the video and all of them has equal importance and there is no order that #1 is better than #2">
+            <img src="../static/img/tiles/video-dell.jpg" alt="Del XPS" class="image"/>
+          </a>
+          <br><br>
+
+          <a href="{{ url_for('blogs.gallery') }}" data-gallery="#video" data-source="youtube" data-id="6g-ZIm0wge4" data-title="Best New Dell Laptops" data-description="Best of dell's laptops that you can consider buying in 2016. 4 Laptops are featured in the video and all of them has equal importance and there is no order that #1 is better than #2">Brend new DELL XPS</a>
+        </div>
+        <div class="col-sm-3 align-center">
+          <a href="{{ url_for('blogs.gallery') }}">
+            <img src="../static/img/tiles/gallery.jpg" alt="Gallery" class="image"/>
+          </a>
+          <br><br>
+          
+          <a href="{{ url_for('blogs.gallery') }}">Products gallery</a>
+        </div>
+      </div>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+
+    <div class="container">
+      <h2>NEW PRODUCTS</h2>
+      <hr class="offset-md">
+
+      <div class="row products">
+        {% for prod in product %}
+
+        <div class="col-sm-4 col-md-3 product">
+            <br>
+          <a href="{{ url_for('product.product') }}" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+          <a href="{{ url_for('product.product') }}"><img  src="{{url_for('static', filename='img/' + prod.image)}}" alt="Surface Pro"/></a>
+
+          <div class="content">
+            <h1 class="h4">{{ prod.name }}</h1>
+            <p class="price">${{ prod.price }}</p>
+            {% if prod.discount != 0 %}
+            <p class="price through">${{ prod.discount }}</p>
+            {% endif %}
+            <label>{{ prod.category }}</label>
+            <div style="display: flex">
+            <a href="{{ url_for('product.products', product_id=prod.id) }}" class="btn btn-link"> Details</a>
+              <form action="{{ url_for('carts.AddCart') }}" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" name="product_id" value="{{prod.id}}">
+                  <button type="submit" class="btn btn-primary btn-rounded"> <i class="ion-bag"></i> Add to cart</button>
+                  <input type="hidden" name="quantity"   value="1" min="1" max="100">
+              </form>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Special products</h2>
+      <hr class="offset-md">
+
+      <div class="row products">
+        {% for rec in recommendation %}
+        <div class="col-sm-6 col-md-3 product">
+             <br>
+          <a href="{{ url_for('product.product') }}" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+          <a href="{{ url_for('product.product') }}"><img src="{{url_for('static', filename='img/' + rec.image)}}" alt="HP Chromebook 11"/></a>
+
+          <div class="content">
+            <h1 class="h4">{{ rec.name }}</h1>
+            <p class="price">${{ rec.price }}</p>
+            <p class="price through">${{ rec.discount }}</p>
+            <label>{{rec.category}}</label>
+            <div style="display: flex">
+            <a href="{{ url_for('recom.recommendations', recommendation_id=rec.id) }}" class="btn btn-link"> Details</a>
+            <a href="{{ url_for('main.contact') }}" class="btn btn-link"> Get Yours</a>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <div class="container">
+      <h2>NEW ARTICLES</h2>
+      <hr class="offset-md">
+
+      <div class="row blog">
+        {% for post in posts %}
+        <div class="col-sm-6 col-md-6 item">
+
+          <div class="body">
+            <a href="{{ url_for('blogs.blog') }}" class="view"><i class="ion-ios-book-outline"></i></a>
+
+            <a href="{{ url_for('blogs.blog') }}">
+              <img src="{{url_for('static', filename='img/' + post.image)}}" title="Apple Devices" alt="Apple Devices">
+            </a>
+
+            <div class="caption">
+              <h1 class="h3">{{ post.title }}</h1>
+              <label> {{ post.date_posted.strftime('%d-%m-%Y')}}</label>
+              <hr class="offset-sm">
+
+              <p>
+               {{ post.content }}
+              </p>
+              <hr class="offset-sm">
+
+              <a href="{{ url_for('blogs.blog') }}"> View article <i class="ion-ios-arrow-right"></i> </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+{% endblock content %}

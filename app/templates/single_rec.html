@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <hr class="offset-lg">
+    <div class="product">
+    	<div class="container">
+        <div class="row">
+          <div class="col-sm-7 col-md-7">
+            <div class="carousel product" data-count="5" data-current="1">
+              <!-- <button class="btn btn-control"></button> -->
+
+              <div class="items">
+                <div class="item active" data-marker="1">
+                  <img  src="{{url_for('static', filename='img/' + rec.image)}}" alt="ChromeBook 11"/>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 col-md-5">
+
+              <br>
+            <img style="border-radius: 40px" src="{{url_for('static', filename='img/' + rec.image)}}" alt="HP" class="brand hidden-xs" />
+
+            <h1>{{ rec.name }}</h1>
+
+            <p>{{rec.desc}}</p>
+
+
+            <p class="price">${{ rec.price }}</p>
+
+
+            <p class="price through">${{ rec.discount }}</p>
+
+            <br>
+              <i class="ion-star "></i>
+              <i class="ion-star "></i>
+              <i class="ion-star "></i>
+              <i class="ion-star "></i>
+              <i class="ion-ios-star-half "></i>
+              <br>
+
+              <a href="{{ url_for('main.contact')}}" class="btn btn-link"> Get Yours</a>
+          </div>
+        </div>
+    	</div>
+    </div>
+    <br><br>
+{% endblock content %}

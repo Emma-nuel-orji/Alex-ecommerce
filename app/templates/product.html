@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <hr class="offset-lg">
+
+    <div class="container tags">
+
+        <p>List of products available</p>
+        <div class="btn-group" >
+            <a class="" href="{{url_for('carts.cart')}}">cart ({{session['Shoppingcart']|length}})</a>
+        </div>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <!-- Filter -->
+
+
+        <!-- Products -->
+        <div class="col-sm-12 products">
+          <div style="align-items: center" class="row">
+            {% for prod in product %}
+            <div  class="col-sm-12 col-md-3  product">
+                 <br>
+              <a href="#favorites" class="favorites" data-favorite="inactive"><i class="ion-ios-heart-outline"></i></a>
+              <a href="/catalog"><img src="{{url_for('static', filename='img/' + prod.image)}}" alt="HP Chromebook 11"/></a>
+
+              <div class="content">
+                <h1 class="h4">{{ prod.name }}</h1>
+                <p class="price">${{ prod.price }}</p>
+
+                  <p class="price through">${{ prod.discount }}</p>
+
+                <label>{{ prod.category }}</label>
+                  <div style="display: flex">
+                <a href="{{ url_for('product.products', product_id=prod.id) }}" class="btn btn-link"> Details</a>
+                <form action="{{ url_for('carts.AddCart') }}" method="POST" enctype="multipart/form-data">
+                  <input type="hidden" name="product_id" value="{{prod.id}}">
+                  <button type="submit" class="btn btn-primary btn-rounded"> 
+                    <i class="ion-bag"></i> Add to cart</button>
+                 
+                  <input type="hidden" name="quantity" id=""  value="1" min="1" max="100">
+                </form>
+                  </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+{% endblock content %}

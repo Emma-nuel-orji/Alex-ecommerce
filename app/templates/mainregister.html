@@ -1,0 +1,123 @@
+{% extends 'mainlayout.html' %}
+{% block content %}
+
+<!-- Page Content-->
+
+    <!-- Page Title-->
+<div class="page-title">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+            <ul class="breadcrumbs">
+                <li><a href="{{ url_for('main.index') }}">Home</a> </li>
+                <li class="separator"></li>
+                <li>Register</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page Content-->
+  <div class="container padding-bottom-3x mb-1">
+  <div class="row">
+
+
+       
+
+
+          <div class="col-md-12">
+            <div class="card register-area">
+                <div class="card-body ">
+                    <h4 class="margin-bottom-1x text-center">Register</h4>
+            <form class="row" action="https://geniusdevs.com/codecanyon/omnimart40/user/register-submit" method="POST">
+                <input type="hidden" name="_token" value="1VJ0S5rM5TZEt1mljRkgwSrGOBd7FsZgTpOGoyCm" autocomplete="off">              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-fn">First Name</label>
+                  <input class="form-control" type="text" name="first_name" placeholder="First Name" id="reg-fn" value="">
+                                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-ln">Last Name</label>
+                  <input class="form-control" type="text" name="last_name" placeholder="Last Name" id="reg-ln" value="">
+                                  </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-email">E-mail Address</label>
+                  <input class="form-control" type="email" name="email" placeholder="E-mail Address" id="reg-email" value="">
+                                  </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-phone">Phone Number</label>
+                  <input class="form-control" name="phone" type="text" placeholder="Phone Number" id="reg-phone" value="">
+                                  </div>
+              </div>
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-pass">Password</label>
+                  <input class="form-control" type="password" name="password" placeholder="Password" id="reg-pass">
+                                  </div>
+
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="reg-pass-confirm">Confirm Password</label>
+                  <input class="form-control" type="password" name="password_confirmation" placeholder="Confirm Password" id="reg-pass-confirm">
+                </div>
+              </div>
+
+                            <div class="col-lg-12 mb-4">
+                  <script src="../../../../www.google.com/recaptcha/apid41d.js?" async defer></script>
+
+                  <div data-sitekey="6LcnPoEaAAAAAF6QhKPZ8V4744yiEnr41li3SYDn" class="g-recaptcha"></div>
+                                </div>
+              
+              <div class="col-12 text-center">
+                <button class="btn btn-primary margin-bottom-none" type="submit"><span>Register</span></button>
+              </div>
+
+              <p>
+                Already have an account? Login! <a href="/l"> Login > </a>
+              </p>
+            </form>
+                </div>
+            </div>
+          </div>
+        </div>
+  </div>
+  <!-- Site Footer-->
+
+<!--    announcement banner section start   -->
+<a class="announcement-banner" href="#announcement-modal"></a>
+<div id="announcement-modal" class="mfp-hide white-popup">
+            <div class="announcement-with-content">
+            <div class="left-area">
+                <img src="../assets/images/1638791990Untitled-1.jpg" alt="">
+            </div>
+            <div class="right-area">
+                <h3 class="">Get 50% Discount.</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, facere nesciunt doloremque nobis debitis sint?</p>
+                <form class="subscriber-form" action="https://geniusdevs.com/codecanyon/omnimart40/subscriber/submit" method="post">
+                    <input type="hidden" name="_token" value="1VJ0S5rM5TZEt1mljRkgwSrGOBd7FsZgTpOGoyCm" autocomplete="off">                    <div class="input-group">
+                        <input class="form-control" type="email" name="email" placeholder="Your e-mail">
+                        <span class="input-group-addon"><i class="icon-mail"></i></span> </div>
+                    <div aria-hidden="true">
+                        <input type="hidden" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
+                    </div>
+
+                    <button class="btn btn-primary btn-block mt-2" type="submit">
+                        <span>Subscribe</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    
+
+</div>
+<!--    announcement banner section end   -->
+
+
+{% endblock content %}

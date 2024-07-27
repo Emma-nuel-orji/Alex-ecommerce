@@ -1,0 +1,109 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<hr class="offset-md">
+
+<div class="box">
+  <div class="container">
+      <h1>Shopping Cart</h1>
+      <hr class="offset-sm">
+  </div>
+</div>
+<hr class="offset-md">
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="checkout-cart">
+                  <div class="content">
+                    {% for key , product  in session['Shoppingcart'].items() %}
+                      <div class="media">
+                        <div class="media-left">
+                          <a href="#">
+                            <img class="media-object"  src="{{url_for('static', filename='img/'+ product.image)}}" alt="HP Chromebook 11"/>
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <h2 class="h4 media-heading">{{product.name}}</h2>
+                          <label>{{product.category}}</label>
+                          <p class="price">${{ (product.price)}}</p>
+                        </div>
+                        <div class="controls">
+                          <div class="input-group">
+
+                            <input type="text" class="form-control input-sm" placeholder="Qty" value="1" readonly="">
+
+                          </div><!-- /input-group -->
+
+                          <a href="{{url_for('carts.deleteitem', id=key)}}"> <i class="ion-trash-b"></i> Remove </a>
+                        </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="col-sm-8 col-md-4">
+          <hr class="offset-md visible-sm">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <h2 class="no-margin">Summary</h2>
+                <hr class="offset-md">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p>Subtotal ({{session['Shoppingcart']|length}} items)</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p><b>${{grandtotal}}</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <h3 class="no-margin">Total sum</h3>
+                        </div>
+                        <div class="col-xs-6">
+                            <h3 class="no-margin">${{grandtotal}}</h3>
+                        </div>
+                    </div>
+                </div>
+                  <hr>
+                  <hr class="offset-md">
+
+                <a href="{{url_for('main.checkout')}}" class="btn btn-primary btn-lg justify"><i class="ion-android-checkbox-outline"></i>&nbsp;&nbsp; Checkout order</a>
+                <hr class="offset-md">
+
+                <p>Pay your order in the most convenient way</p>
+                <div class="payment-icons">
+                  <img src="static/img/payments/icon-paypal.svg" alt="paypal">
+                  <img src="static/img/payments/icon-visa.svg" alt="visa">
+                  <img src="static/img/payments/icon-mc.svg" alt="mc">
+                  <img src="static/img/payments/icon-discover.svg" alt="discover">
+                  <img src="static/img/payments/icon-ae.svg" alt="ae">
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="offset-lg">
+<hr class="offset-lg">
+
+{% endblock content %}
+

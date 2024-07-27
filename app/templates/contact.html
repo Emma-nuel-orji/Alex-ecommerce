@@ -1,0 +1,209 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <header>
+      <div class="carousel" data-count="3" data-current="2">
+        <div class="items">
+          <div class="item" data-marker="1">
+            <img src="../static/img/carousel/bckg.jpg" alt="Background" class="background"/>
+
+            <div class="content">
+              <div class="outside-content">
+                <div class="inside-content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 align-center">
+                        <h1>New amazing laptops</h1>
+                        <p>Provide lightweight and powerull</p>
+                        <a href="/catalog">More laptops ></a>
+                        <br><br>
+                      </div>
+                      <div class="col-sm-6 col-sm-offset-3 align-center">
+                        <img src="static/img/carousel/newlaptops.jpg" alt="Laptops"/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item active" data-marker="2">
+            <img src="static/img/carousel/bckg.jpg" alt="Background" class="background"/>
+
+            <div class="content">
+              <div class="outside-content">
+                <div class="inside-content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-8 col-sm-offset-2 align-center">
+                        <img src="static/img/carousel/surfaces.jpg" alt="Surface Pro"/>
+                      </div>
+                      <div class="col-sm-12 align-center">
+                        <h1>8 Windows Hybrid Laptops</h1>
+                        <p>The laptop comes with an Intel i5 chip and 8GB of RAM.</p>
+                        <a href="../catalog/">View surfaces ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item" data-marker="3">
+            <img src="../static/img/carousel/bckg.jpg" alt="Background" class="background"/>
+
+            <div class="content">
+              <div class="outside-content">
+                <div class="inside-content">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-5 col-sm-offset-1 align-center">
+                        <img src="../static/img/carousel/ipadair2.jpg" alt="iPad Air 2" class="hidden-xs hidden-sm"/>
+                        <img src="../static/img/carousel/ipadair2m.jpg" alt="iPad Air 2" class="hidden-md hidden-lg"/>
+                      </div>
+                      <div class="col-sm-4 align-left">
+                        <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
+                        <br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm"><br class="hidden-xs hidden-sm">
+                        <h1>Luxury devices</h1>
+                        <br>
+
+                        <p>
+                          Luxury watches, business tablets and 3D touch: How Apple plans to stay ahead in mobile.
+                          When it comes to the brand’s latest iPhones, the biggest excitement isn’t focused on the addition of a rose gold coloured device but the new 3D touch sensors.
+                        </p>
+                        <a href="../blog/item-photo.html">View article ></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ul class="markers">
+          <li data-marker="1"><img src="../static/img/carousel/newlaptops.jpg" alt="Background"/></li>
+          <li data-marker="2" class="active"><img src="../static/img/carousel/surfaces.jpg" alt="Background"/></li>
+          <li data-marker="3"><img src="../static/img/carousel/ipadair2.jpg" alt="Background"/></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="gray">
+      <div class="container ">
+        <h1 class="container align-center"> Contact Us </h1>
+        <p class="container align-center"> Still Confuse, please Fill The Form Below so we can connect you <br class="visible-md visible-lg"> to the right agent. </p>
+
+        <div class="row">
+          <div >
+            <form class="contact col-sm-12 " method="POST" action="" >
+       {{ form.hidden_tag() }}
+        <fieldset >
+            <legend class="border-bottom mb-5 text-info"> Send Us A Message</legend>
+          <div class="col-md-12">
+            <fieldset >
+            <div class="form-group">
+                {{ form.name.label(class= "form-control-label") }}
+                {% if form.name.errors %}
+                    {{ form.name(class= "form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                         {% for error in form.name.errors %}
+                           <span class="alert-danger"> {{ error }} </span>
+                         {% endfor%}
+                    </div>
+                {% else%}
+                     {{ form.name(class= "form-control form-control-lg") }}
+                {% endif%}
+            </div>
+             </fieldset>
+                 <br>
+              <fieldset>
+            <div class="form-group">
+                {{ form.contact_email.label(class= "form-control-label") }}
+               {% if form.contact_email.errors %}
+                   {{ form.contact_email(class= "form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                         {% for error in form.contact_email.errors%}
+                           <span class="alert-danger"> {{ error }} </span>
+                         {% endfor%}
+                    </div>
+                {% else %}
+                     {{ form.contact_email(class= "form-control form-control-lg") }}
+                {% endif%}
+            </div>
+                </fieldset>
+           <fieldset>
+            <div class="form-group">
+                {{ form.subject.label(class= "form-control-label") }}
+                {% if form.subject.errors %}
+                   {{ form.subject(class= "form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                         {% for error in form.subject.errors %}
+                           <span class="alert-danger"> {{ error }} </span>
+                         {% endfor%}
+                    </div>
+                {% else%}
+                     {{ form.subject(class= "form-control form-control-lg") }}
+                {% endif%}
+            </div>
+            </fieldset>
+                 <br>
+              <fieldset>
+            <div class="form-group">
+                {{ form.message.label(class= "form-control-label") }}
+                {% if form.message.errors %}
+                    {{ form.message(class= "form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                         {% for error in form.message.errors%}
+                            <span class="alert-danger"> {{ error }} </span>
+                         {% endfor%}
+                    </div>
+                {% else%}
+                     {{ form.message(class= "form-control form-control-lg") }}
+                {% endif%}
+            </div>
+                 </fieldset>
+                 <br>
+            </div>
+        </fieldset>
+        <div class="form-group">
+          <div class="col-md-4">
+             {{ form.submit( class="col-md-3 col-sm-6 btn btn-primary") }}
+          </div>
+        </div>
+    </form>
+<!--            <form class="col-sm-12 " class="contact" action="index.php" method="post">-->
+<!--              <div class="col-md-12">-->
+<!--                  <fieldset>-->
+<!--                      <input name="name" type="text" class="form-control" id="name" placeholder="Your name..."-->
+<!--                             required="">-->
+<!--                  </fieldset>-->
+<!--                  <br>-->
+<!--                  <fieldset>-->
+<!--                      <input name="email" type="text" class="form-control" id="email" placeholder="Your email..."-->
+<!--                             required="">-->
+<!--                  </fieldset>-->
+<!--                  <br>-->
+<!--                  <fieldset>-->
+<!--                      <input name="phone" type="text" class="form-control" id="phone" placeholder="Your phone..."-->
+<!--                             required="">-->
+<!--                  </fieldset>-->
+<!--                  <br>-->
+<!--                  <fieldset>-->
+<!--                      <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..."-->
+<!--                                required=""></textarea>-->
+<!--                  </fieldset>-->
+<!--                  <br>-->
+<!--              </div>-->
+<!--                <div class="col-md-4">-->
+<!--                    <button type="submit" class="btn btn-primary justify"> Send Mail <i class="ion-android-send"></i> </button>-->
+<!--                </div>-->
+<!--            </form>-->
+
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+{% endblock content %}

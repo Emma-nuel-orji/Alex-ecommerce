@@ -1,0 +1,652 @@
+{% extends 'mainlayout.html' %}
+{% block content %}
+
+<!-- Page Content-->
+    <!-- Page Title-->
+<div class="page-title">
+    <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+            <ul class="breadcrumbs">
+                <li><a href="https://geniusdevs.com/codecanyon/omnimart40">Home</a> </li>
+                <li class="separator"></li>
+                <li>Shop</li>
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page Content-->
+  <div class="container padding-bottom-3x mb-1">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shop-top-filter-wrapper">
+                    <div class="row">
+                        <div class="col-md-10 gd-text-sm-center">
+                            <div class="sptfl">
+                                <div class="quickFilter">
+                                    <h4 class="quickFilter-title"><i class="fas fa-filter"></i>Quick filter</h4>
+                                    <ul id="quick_filter">
+                                        <li><a datahref=""><i class="icon-chevron-right pr-2"></i>All products </a></li>
+                                        <li class=""><a href="javascript:;" data-href="feature"><i class="icon-chevron-right pr-2"></i>Featured products </a></li>
+                                        <li class=""><a href="javascript:;" data-href="best"><i class="icon-chevron-right pr-2"></i>Best sellers </a></li>
+                                        <li class=""><a href="javascript:;" data-href="top"><i class="icon-chevron-right pr-2"></i>Top rated </a></li>
+                                        <li class=""><a href="javascript:;" data-href="new"><i class="icon-chevron-right pr-2"></i>New Arrival </a></li>
+                                    </ul>
+                                </div>
+                                <div class="shop-sorting">
+                                    <label for="sorting">Sort by:</label>
+                                    <select class="form-control" id="sorting">
+                                    <option value="">All Products</option>
+                                    <option value="low_to_high" >Low - High Price</option>
+                                    <option value="high_to_low" >High - Low Price</option>
+                                    </select><span class="text-muted">Showing:</span><span>1 - 16 items</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 gd-text-sm-center">
+                            <div class="shop-view"><a class="list-view active " data-step="grid" href="javascript:;" data-href="catalog46e8.html?view_check=grid"><i class="fas fa-th-large"></i></a>
+                                <a class="list-view " href="javascript:;" data-step="list" data-href="catalog31cf.html?view_check=list"><i class="fas fa-list"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+
+          <div class="col-lg-9 order-lg-2" id="list_view_ajax">
+            <!-- Shop Toolbar-->
+        
+        <div class="row g-3" id="main_div">
+           
+            
+                    
+                    {% for prod in product %}
+                     <div class="col-xxl-3 col-md-4 col-6">
+                        <div class="product-card ">
+                          <div class="product-badge bg-danger"> new </div>
+                            <div class="product-badge product-badge2 bg-info"> -29%</div>
+                            <div class="product-thumb">
+                            <img class="lazy" data-src="{{url_for('static', filename='img/' + prod.image)}}" alt="Product">
+
+                            <div class="product-button-group">
+                                <form action="{{ url_for('carts.AddCart') }}" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="product_id" value="{{prod.id}}">
+                                <a class="product-button wishlist_store" href="user/wishlist/store/585.json" title="Wishlist"><i class="icon-heart"></i></a>
+                                <a class="product-button product_compare" href="javascript:;" data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/585" title="Compare"><i class="icon-repeat"></i></a>
+                                
+
+                                <button type="submit" class="product-button add_to_single_cart" title="To Cart"> 
+                                    <i class="icon-shopping-cart"></i></button>
+
+                                
+                                <input type="hidden" name="quantity" id=""  value="1" min="1" max="100">
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="product-card-body">
+                            <div class="product-category">
+                                <a href="catalogbcbe.html?category=Beauty--Personal-Care">Beauty &amp; Personal Care</a>
+                            </div>
+                            <h3 class="product-title"><a href="product/p5lHome-Use-Beauty-Device-Face-Massager-Facial-Lifting-Tool-Beauty-AntiAgingbD.html">
+                                {{ prod.name }}
+                            </a></h3>
+                            <div class="rating-stars">
+                                <i class = 'far fa-star'></i><i class = 'far fa-star'></i><i class = 'far fa-star'></i><i class = 'far fa-star'></i><i class = 'far fa-star'></i>
+                            </div>
+                            <h4 class="product-price">
+                                <del>₦{{ prod.discount }}</del>
+                                ₦{{ prod.price }}
+                            </h4>
+                        </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+                 
+
+            </div>
+
+
+        <!-- Pagination-->
+        <div class="row mt-15" id="item_pagination">
+            <div class="col-lg-12 text-center">
+                <nav>
+        <ul class="pagination">
+            
+                            <li class="page-item disabled" aria-disabled="true" aria-label="&laquo; Previous">
+                    <span class="page-link" aria-hidden="true">&lsaquo;</span>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                <li class="page-item"><a class="page-link" href="catalog4658.html?page=2">2</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="catalog9ba9.html?page=3">3</a></li>
+                                                                                                <li class="page-item"><a class="page-link" href="catalogfdb0.html?page=4">4</a></li>
+                                                                        
+            
+                            <li class="page-item">
+                    <a class="page-link" href="catalog4658.html?page=2" rel="next" aria-label="Next &raquo;">&rsaquo;</a>
+                </li>
+                    </ul>
+    </nav>
+
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../static/omnimart/assets/front/js/catalog.js"></script>
+
+
+
+          </div>
+
+          <!-- Sidebar          -->
+          <div class="col-lg-3 order-lg-1">
+            <div class="sidebar-toggle position-left"><i class="icon-filter"></i></div>
+            <aside class="sidebar sidebar-offcanvas position-left"><span class="sidebar-close"><i class="icon-x"></i></span>
+              <!-- Widget Categories-->
+              <section class="widget widget-categories card rounded p-4">
+                <h3 class="widget-title">Shop Categories</h3>
+                <ul id="category_list" class="category-scroll">
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Women-Clothing">Women Clothing</a>
+
+                        <ul id="subcategory_list">
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Womens-Underwear">Women&#039;s Underwear</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Pajama-Sets">Pajama Sets</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Women-Socks--Hosiery">Women Socks &amp; Hosiery</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Shapewer">Shapewer</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Bras">Bras</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Weddings--Events">Weddings &amp; Events</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Wedding-Dresses">Wedding Dresses</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Prom-Dresses">Prom Dresses</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Evening-Dresses">Evening Dresses</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Costumes">Costumes</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Bottoms">Bottoms</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Leggings">Leggings</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Skirt">Skirt</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Jeans">Jeans</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Pants--Capris">Pants &amp; Capris</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Womens-Fashion">Women&#039;s Fashion</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Accessories">Accessories</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="men-clothing">Men Clothing</a>
+
+                        <ul id="subcategory_list">
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Outerwear--Jackets">Outerwear &amp; Jackets</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Jackets">Jackets</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Sweaters">Sweaters</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Parkas">Parkas</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Down-Jackets">Down Jackets</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Suits--Blazers">Suits &amp; Blazers</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Shirt">Shirt</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Bottoms">Bottoms</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Underwear">Underwear</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Boxers">Boxers</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Briefs">Briefs</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Long-Johns">Long Johns</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Sleep--Lounge">Sleep &amp; Lounge</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Pajama-Sets">Pajama Sets</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Accessories">Accessories</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Electronics">Electronics</a>
+
+                        <ul id="subcategory_list">
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Mobile-Phones">Mobile Phones</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Cellphones">Cellphones</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="iPhones">iPhones</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Android-Phone">Android Phone</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Mobile-Phone-Accessories">Mobile Phone Accessories</a>
+
+                              <ul id="childcategory_list">
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Phone-Bags--Cases">Phone Bags &amp; Cases</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Mobile-Phone-Cables">Mobile Phone Cables</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Power-Bank">Power Bank</a>
+
+                                </li>
+                                                                <li class="">
+                                  <a class="childcategory" href="javascript:;" data-href="Screen-Protectors">Screen Protectors</a>
+
+                                </li>
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Laptop">Laptop</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Computer">Computer</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Featured-Accessories">Featured Accessories</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="DSLR">DSLR</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Vehicles--Accessories">Vehicles &amp; Accessories</a>
+
+                        <ul id="subcategory_list">
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Bike">Bike</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Car">Car</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Beauty--Personal-Care">Beauty &amp; Personal Care</a>
+
+                        <ul id="subcategory_list">
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Hair-Weaves">Hair Weaves</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Makeup">Makeup</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Nail-Art--Tools">Nail Art &amp; Tools</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Skin-Care">Skin Care</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Personal-Care">Personal Care</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Web-Themes--Templates">Web Themes &amp; Templates</a>
+
+                        <ul id="subcategory_list">
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="WordPress-Themes">WordPress Themes</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="Laravel-CMS">Laravel CMS</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                        <li class="">
+                              <a class="subcategory" href="javascript:;" data-href="HTML-Templates">HTML Templates</a>
+
+                              <ul id="childcategory_list">
+                                                            </ul>
+                            </li>
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Sports--Entertainment">Sports &amp; Entertainment</a>
+
+                        <ul id="subcategory_list">
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Home--Garden">Home &amp; Garden</a>
+
+                        <ul id="subcategory_list">
+                                                    </ul>
+                      </li>
+                                        <li class="has-children   ">
+                      <a class="category_search" href="javascript:;"  data-href="Medicine-Health-Care">Medicine &amp; Health Care</a>
+
+                        <ul id="subcategory_list">
+                                                    </ul>
+                      </li>
+                                    </ul>
+              </section>
+
+                                 <!-- Widget Price Range-->
+              <section class="widget widget-categories card rounded p-4">
+                <h3 class="widget-title">Filter by Price</h3>
+                <form class="price-range-slider" method="post" data-start-min="0" data-start-max="10000" data-min="0" data-max="10000" data-step="5">
+                  <div class="ui-range-slider"></div>
+                  <footer class="ui-range-slider-footer">
+                    <div class="column">
+                      <button class="btn btn-primary btn-sm" id="price_filter" type="button"><span>Filter</span></button>
+                    </div>
+                    <div class="column">
+                      <div class="ui-range-values">
+                        <div class="ui-range-value-min">₦<span class="min_price"></span>
+                          <input type="hidden">
+                        </div>-
+                        <div class="ui-range-value-max">₦<span class="max_price"></span>
+                          <input type="hidden">
+                        </div>
+                      </div>
+                    </div>
+                  </footer>
+                </form>
+              </section>
+              
+                                          
+              <section class="widget widget-categories card rounded p-4">
+                <h3 class="widget-title">Filter by Color</h3>
+                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="Black" id="2Black">
+                  <label class="custom-control-label" for="2Black">Black<span class="text-muted"></span></label>
+              </div>  
+                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="Blue" id="2Blue">
+                  <label class="custom-control-label" for="2Blue">Blue<span class="text-muted"></span></label>
+              </div>  
+                                                                                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="Pink" id="2Pink">
+                  <label class="custom-control-label" for="2Pink">Pink<span class="text-muted"></span></label>
+              </div>  
+                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="Red" id="2Red">
+                  <label class="custom-control-label" for="2Red">Red<span class="text-muted"></span></label>
+              </div>  
+                                                                                                              </section>
+                            
+              <section class="widget widget-categories card rounded p-4">
+                <h3 class="widget-title">Filter by Size</h3>
+                                                                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="L" id="56L">
+                  <label class="custom-control-label" for="56L">L<span class="text-muted"></span></label>
+              </div>  
+                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="M" id="56M">
+                  <label class="custom-control-label" for="56M">M<span class="text-muted"></span></label>
+              </div>  
+                                                                                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="XL" id="56XL">
+                  <label class="custom-control-label" for="56XL">XL<span class="text-muted"></span></label>
+              </div>  
+                                                                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input option"    type="checkbox" value="XXL" id="56XXL">
+                  <label class="custom-control-label" for="56XXL">XXL<span class="text-muted"></span></label>
+              </div>  
+                                              </section>
+                            
+              <!-- Widget Brand Filter-->
+              <section class="widget widget-categories card rounded p-4">
+                <h3 class="widget-title">Filter by Brand</h3>
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input brand-select" type="checkbox" value="" id="all-brand">
+                  <label class="custom-control-label" for="all-brand">All Brands</label>
+                </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Adidas" id="Adidas">
+                    <label class="custom-control-label" for="Adidas">Adidas</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Lavie" id="Lavie">
+                    <label class="custom-control-label" for="Lavie">Lavie</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Skyart" id="Skyart">
+                    <label class="custom-control-label" for="Skyart">Skyart</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Nike" id="Nike">
+                    <label class="custom-control-label" for="Nike">Nike</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Samsung" id="Samsung">
+                    <label class="custom-control-label" for="Samsung">Samsung</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Yamaha" id="Yamaha">
+                    <label class="custom-control-label" for="Yamaha">Yamaha</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="HM" id="HM">
+                    <label class="custom-control-label" for="HM">H.M</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Loreal" id="Loreal">
+                    <label class="custom-control-label" for="Loreal">Loreal</label>
+                  </div>
+                                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input brand-select"  type="checkbox" value="Ascis" id="Ascis">
+                    <label class="custom-control-label" for="Ascis">Ascis</label>
+                  </div>
+                              </section>
+
+
+            </aside>
+          </div>
+        </div>
+      </div>
+
+
+
+      <form id="search_form" class="d-none" action="https://geniusdevs.com/codecanyon/omnimart40/catalog" method="GET">
+
+        <input type="text" name="maxPrice" id="maxPrice" value="">
+        <input type="text" name="minPrice" id="minPrice" value="">
+        <input type="text" name="brand" id="brand" value="">
+        <input type="text" name="brand" id="brand" value="">
+        <input type="text" name="category" id="category" value="">
+        <input type="text" name="quick_filter" id="quick_filter" value="">
+        <input type="text" name="childcategory" id="childcategory" value="">
+        <input type="text" name="page" id="page" value="">
+        <input type="text" name="attribute" id="attribute" value="">
+        <input type="text" name="option" id="option" value="{&quot;attribute_id&quot;:&quot;56&quot;,&quot;name&quot;:&quot;XXL&quot;,&quot;id&quot;:1220,&quot;keyword&quot;:&quot;xxl&quot;,&quot;attribute&quot;:{&quot;id&quot;:56,&quot;item_id&quot;:&quot;523&quot;,&quot;name&quot;:&quot;Size&quot;,&quot;keyword&quot;:&quot;size&quot;,&quot;created_at&quot;:null,&quot;updated_at&quot;:null}}">
+        <input type="text" name="subcategory" id="subcategory" value="">
+        <input type="text" name="sorting" id="sorting" value="">
+        <input type="text" name="view_check" id="view_check" value="">
+
+
+        <button type="submit" id="search_button" class="d-none"></button>
+    </form>
+
+<!--    announcement banner section start   -->
+<!-- <a class="announcement-banner" href="#announcement-modal"></a>
+<div id="announcement-modal" class="mfp-hide white-popup">
+            <div class="announcement-with-content">
+            <div class="left-area">
+                <img src="../static/omnimart/assets/images/1638791990Untitled-1.jpg" alt="">
+            </div>
+            <div class="right-area">
+                <h3 class="">Get 50% Discount.</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, facere nesciunt doloremque nobis debitis sint?</p>
+                <form class="subscriber-form" action="https://geniusdevs.com/codecanyon/omnimart40/subscriber/submit" method="post">
+                    <input type="hidden" name="_token" value="1VJ0S5rM5TZEt1mljRkgwSrGOBd7FsZgTpOGoyCm" autocomplete="off">                    <div class="input-group">
+                        <input class="form-control" type="email" name="email" placeholder="Your e-mail">
+                        <span class="input-group-addon"><i class="icon-mail"></i></span> </div>
+                    <div aria-hidden="true">
+                        <input type="hidden" name="b_c7103e2c981361a6639545bd5_1194bb7544" tabindex="-1">
+                    </div>
+
+                    <button class="btn btn-primary btn-block mt-2" type="submit">
+                        <span>Subscribe</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    
+
+</div>-->
+<!--    announcement banner section end   -->
+
+<!-- Site Footer-->
+
+{% endblock content %}

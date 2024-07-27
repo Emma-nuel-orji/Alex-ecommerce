@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <hr class="offset-lg">
+
+    <div class="product">
+    	<div class="container">
+        <div class="row">
+          <div class="col-sm-7 col-md-7">
+            <div class="carousel product" data-count="5" data-current="1">
+              <!-- <button class="btn btn-control"></button> -->
+
+              <div class="items">
+                <div class="item active" data-marker="1">
+                  <img  src="{{url_for('static', filename='img/' + prod.image)}}" alt="{{prod.name}}"/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-sm-5 col-md-5">
+              <div>
+                  <a class="" href="{{url_for('carts.cart')}}" tabindex="-1" aria-disabled="true">cart({{session['Shoppingcart']|length}})</a>
+              </div>
+              <br>
+            <img style="border-radius: 40px" src="{{url_for('static', filename='img/' + prod.image)}}" alt="{{prod.name}}" class="brand hidden-xs" />
+
+            <h1>{{ prod.name }}</h1>
+
+            <p>{{ prod.desc }}</p>
+
+
+            <p class="price">${{ prod.price }}</p>
+
+            <p class="price through">${{ prod.discount }}</p>
+
+            <br>
+              <i class="ion-star "></i>
+              <i class="ion-star "></i>
+              <i class="ion-star "></i>
+              <i class="ion-star "></i>
+              <i class="ion-ios-star-half "></i>
+              <br>
+              <br>
+
+            <form action="{{ url_for('carts.AddCart') }}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="product_id" value="{{prod.id}}">
+                <button type="submit" class="btn btn-primary btn-rounded"> <i class="ion-bag"></i> Add to cart</button>
+                <label for="">Quantity</label>
+                <input type="number" name="quantity" id=""  value="1" min="1" max="100">
+            </form>
+          </div>
+        </div>
+    	</div>
+    </div>
+
+    <br><br>
+{% endblock content %}

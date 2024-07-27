@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+ <div class="container faq">
+
+
+
+    <hr class="offset-lg">
+    <div class="gray">
+      <div class="container align-center">
+        <hr class="offset-md">
+      	<h1>Thank you for shopping with us </h1>
+      	<p>Please keep your PDF save for further verifications <br class="visible-md visible-lg"> and don't forget to clear your cart </p>
+
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-4">
+
+               <a class="btn btn-primary justify" style="color: white" href="{{url_for('carts.clearcart')}}">Please Clear Your Cart </a>
+
+          </div>
+        </div>
+        <hr class="offset-lg">
+      	<hr class="offset-md">
+      </div>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+ </div>
+{% endblock content %}

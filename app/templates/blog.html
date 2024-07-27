@@ -1,0 +1,125 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <hr class="offset-lg">
+    <div class="blog">
+      <div class="container">
+        <div class="row">
+          {% for post in posts %}
+          <div class="col-sm-6 col-md-6 item">
+
+            <div class="body">
+              <a href="{{ url_for('blogs.blog') }}" class="view"><i class="ion-ios-book-outline"></i></a>
+
+              <a href="{{ url_for('blogs.blog') }}">
+                <img src="{{url_for('static', filename='img/' + post.image)}}" title="Apple Devices" alt="Apple Devices">
+              </a>
+
+              <div class="caption">
+                <h1 class="h3">{{ post.title }}</h1>
+                <label> {{ post.date_posted.strftime('%d-%m-%Y')}}</label>
+                <hr class="offset-sm">
+
+                <p>
+                  {{ post.content }}
+                </p>
+                <hr class="offset-sm">
+
+                <a href="{{ url_for('blogs.blog') }}"> View article <i class="ion-ios-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="col-sm-6 col-md-6 item">
+            <div class="body">
+              <a href="{{ url_for('blogs.blog') }}" class="view"><i class="ion-ios-book-outline"></i></a>
+              <a href="{{ url_for('blogs.blog') }}">
+                <img src="../static/img/blog/img4.jpg" title="HP Chromebook" alt="HP Chromebook">
+              </a>
+
+              <div class="caption">
+                <h1 class="h3">HP Chromebook review.</h1>
+                <label> 02.01.2022</label>
+                <hr class="offset-sm">
+
+                <p>
+                  HP’s Chromebook 11 G4 ($199) has a dull-gray shell that screams, “bulk education purchase” more than “buy me.” Precisely because this school-oriented model can bang around in backpacks, however, it could teach its consumer Chromebook cousins a thing or two about build quality.
+                </p>
+                <hr class="offset-sm">
+
+                <a href="{{ url_for('blogs.blog') }}"> View article <i class="ion-ios-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-6 item">
+            <div class="body">
+              <a href="{{ url_for('blogs.blog') }}" class="view"><i class="ion-ios-book-outline"></i></a>
+              <a href="{{ url_for('blogs.blog') }}">
+                <img src="../static/img/blog/img3.jpg" alt="Apple Music" title="Apple Music"/>
+              </a>
+
+              <div class="caption">
+                <h1 class="h3">Apple Music changes, Apple and SUP and more</h1>
+                <label> 02.01.2022</label>
+                <hr class="offset-sm">
+
+                <p>
+                  Sunday is Mother’s Day. Wait, did you forget? Well, thanks to Apple, you can make a “Shot on iPhone” Mother’s Day video, using this site.  Upload an image, enter your name, and then you can post the final result so Mom can enjoy.
+                </p>
+                <hr class="offset-sm">
+
+                <a href="{{ url_for('blogs.blog') }}"> View article <i class="ion-ios-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-6 item">
+            <div class="body">
+              <a href="{{ url_for('blogs.blog') }}" class="view"><i class="ion-ios-book-outline"></i></a>
+              <a href="{{ url_for('blogs.blog') }}">
+                <img src="../static/img/blog/img2.jpg" title="Coffee" alt="Coffee">
+              </a>
+
+              <div class="caption">
+                <h1 class="h3">MacBook Pro - brand new day for business.</h1>
+                <label> 02.01.2022</label>
+                <hr class="offset-sm">
+
+                <p>
+                  Organizations everywhere are realizing the potential that Mac brings to their employees by giving them the freedom to use the tools they already know and love. Software and hardware made for each other. Because Apple designs both the software and hardware, every Mac delivers the best possible experience for employees.
+                </p>
+                <hr class="offset-sm">
+
+                <a href="{{ url_for('blogs.blog') }}"> View article <i class="ion-ios-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-6 item">
+            <div class="body">
+              <a href="{{ url_for('blogs.blog') }}" class="view"><i class="ion-ios-book-outline"></i></a>
+              <a href="{{ url_for('blogs.blog') }}">
+                <img src="../static/img/blog/img1.jpg" title="Apple Devices" alt="Apple Devices">
+              </a>
+
+              <div class="caption">
+                <h1 class="h3">The next generation of Multi-Touch</h1>
+                <label> 07.01.2022</label>
+                <hr class="offset-sm">
+
+                <p>
+                  The original iPhone introduced the world to Multi-Touch, forever changing the way people experience technology. With 3D Touch, you can do things that were never possible before. It senses how deeply you press the display, letting you do all kinds of essential things more quickly and simply. And it gives you real-time feedback in the form of subtle taps from the all-new Taptic Engine.
+                </p>
+                <hr class="offset-sm">
+
+                <a href="{{ url_for('blogs.blog') }}"> View article <i class="ion-ios-arrow-right"></i> </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+{% endblock content %}
