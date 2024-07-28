@@ -17,17 +17,11 @@ publishable_key = 'pk_test_51LsSTZIo0R5Gyt8Mim3vwte0jrXt378wpMlp2diEvHMViy5BApip
 
 stripe.api_key = 'sk_test_51LsSTZIo0R5Gyt8Mrn9IYB8F77kdlwzKoUTEFvOgtEP43bS0z1HUDYhlokv9YiX9Sh3WdGPI6hxQYEBq7gTmasUy00k1JNdoNj'
 
-@main.route('/c', methods=['GET', 'POST'])
-def maincart():
-    return render_template("maincart.html",)
 
-@main.route('/l', methods=['GET', 'POST'])
-def mainl():
-    return render_template("mainlogin.html",)
 
-@main.route('/r', methods=['GET', 'POST'])
-def mainr():
-    return render_template("mainregister.html",)
+
+
+
 
 
 @main.route('/', methods=['GET', 'POST'])

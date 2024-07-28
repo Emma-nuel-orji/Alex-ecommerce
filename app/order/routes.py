@@ -10,17 +10,17 @@ order = Blueprint('order', __name__)
 @login_required
 def orders():
     checkout = Checkout.query.all()
-    return render_template('admin/orders.html', checkout=checkout)
+    return render_template('orders.html', checkout=checkout)
 
 
 @order.route("/delete_order/<int:order_id>/delete", methods=['GET', 'POST'])
 def delete_order(order_id):
     order = Checkout.query.get_or_404(order_id)
-    if current_user.id != 2:
+    if current_user.email != 'sativatrendy@gmail.com':
         abort(403)
     db.session.delete(order)
     db.session.commit()
     flash("the product has been deleted successfully", 'success')
     return redirect(url_for('admin.home'))
-    return render_template("Admin/home.html", order=order)
+    return render_template("home.html", order=order)
 

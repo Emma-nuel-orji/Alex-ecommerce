@@ -1,0 +1,696 @@
+
+{% extends 'layout.html' %}
+{% block content %}
+
+
+
+ <!-- Page Title-->
+ <div class="page-title">
+    <div class="container">
+        <div class="column">
+            <ul class="breadcrumbs">
+                <li><a href="#">Home</a> </li>
+                <li class="separator"></li>
+                <li>Billing address</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Page Content-->
+<div class="container padding-bottom-3x mb-1 checkut-page">
+    <div class="row">
+        <!-- Billing Adress-->
+        <div class="col-xl-9 col-lg-8">
+            <div class="steps flex-sm-nowrap mb-5">
+                <a class="step active" href="https://geniusdevs.com/codecanyon/omnimart40/checkout/billing/address">
+                    <h4 class="step-title">1. Billing Address:</h4>
+                </a>
+                <a class="step" href="javascript:;">
+                    <h4 class="step-title">2. Shipping Address:</h4>
+                </a>
+                <a class="step" href="https://geniusdevs.com/codecanyon/omnimart40/checkout/review/payment">
+                    <h4 class="step-title">3. Review and pay</h4>
+                </a>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h6>Billing Address</h6>
+
+                    <form  action="" method="POST" enctype="multipart/form-data">
+                        
+
+                        {{ form.hidden_tag() }}
+                        <input type="hidden" name="_token" value="Kyb6yIDAVHcK1S7uq6h0SimuvtNbzpb1CSJv6V8y" autocomplete="off">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-fn">First Name</label>
+                                    {{ form.firstname.label(class='form-control-label') }}
+                            {% if form.firstname.errors %}
+                                {{ form.firstname(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.firstname.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.firstname(class='form-control form-control-lg') }}
+                            {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-ln">Last Name</label>
+                                    {{ form.lastname.label(class='form-control-label') }}
+                            {% if form.lastname.errors %}
+                                {{ form.lastname(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.lastname.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.lastname(class='form-control form-control-lg') }}
+                            {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout_email_billing">E-mail Address</label>
+                                    {{ form.email.label(class='form-control-label') }}
+                            {% if form.email.errors %}
+                                {{ form.email(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.email(class='form-control form-control-lg') }}
+                            {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-phone">Phone Number</label>
+                                    {{ form.phone.label(class='form-control-label') }}
+                            {% if form.phone.errors %}
+                                {{ form.phone(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.phone.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.phone(class='form-control form-control-lg') }}
+                            {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-address1">Address 1</label>
+                                    {{ form.building.label(class='form-control-label') }}
+                                          {% if form.building.errors %}
+                                              {{ form.building(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.building.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.building(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-address2">Address 2</label>
+                                    {{ form.street.label(class='form-control-label') }}
+                                    {% if form.street.errors %}
+                                        {{ form.street(class='form-control form-control-lg is-invalid') }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.street.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                         {{ form.street(class='form-control form-control-lg') }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-zip">Zip Code</label>
+                                    {{ form.zip.label(class='form-control-label') }}
+                                          {% if form.zip.errors %}
+                                              {{ form.zip(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.zip.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.zip(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-city">City</label>
+                                    {{ form.city.label(class='form-control-label') }}
+                                    {% if form.city.errors %}
+                                        {{ form.city(class='form-control form-control-lg is-invalid') }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.city.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                         {{ form.city(class='form-control form-control-lg') }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="checkout-zip">Date</label>
+                                    {{ form.date_created.label(class='form-control-label') }}
+                                    {% if form.date_created.errors %}
+                                        {{ form.date_created(class='form-control form-control-lg is-invalid') }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.date_created.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                         {{ form.date_created(class='form-control form-control-lg') }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="checkout-country">Country</label>
+                                    {{ form.country.label(class='form-control-label') }}
+                                    {% if form.country.errors %}
+                                        {{ form.country(class='form-control form-control-lg is-invalid') }}
+                                        <div class="invalid-feedback">
+                                            {% for error in form.country.errors %}
+                                                <span>{{ error }}</span>
+                                            {% endfor %}
+                                        </div>
+                                    {% else %}
+                                         {{ form.country(class='form-control form-control-lg') }}
+                                    {% endif %}
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="checkout-company">Remark</label>
+                                    {{ form.description.label(class='form-control-label') }}
+                          {% if form.description.errors %}
+                              {{ form.description(class='form-control form-control-lg is-invalid') }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.description.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                               {{ form.description(class='form-control form-control-lg') }}
+                          {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="same_address" name="same_ship_address" checked>
+                                <label class="custom-control-label" for="same_address">Same as billing address</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input class="custom-control-input" type="checkbox" id="trams__condition">
+                                <label class="custom-control-label" for="trams__condition">This site is protected by reCAPTCHA and the <a href="http://localhost/my/omnimart3/privacy-policy" target="_blank">Privacy Policy</a> and <a href="http://localhost/my/omnimart3/terms-and-service" target="_blank">Terms of Service</a> apply.</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between paddin-top-1x mt-4">
+                            <a class="btn btn-primary btn-sm" href="https://geniusdevs.com/codecanyon/omnimart40/cart"><span class="hidden-xs-down"><i class="icon-arrow-left"></i>Back To Cart</span></a>
+                            <button disabled id="continue__button" class="btn btn-primary  btn-sm" type="button"><span class="hidden-xs-down">Continue</span><i class="icon-arrow-right"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar          -->
+        <div class="col-xl-3 col-lg-4">
+            <aside class="sidebar">
+                <div class="padding-top-2x hidden-lg-up"></div>
+                <!-- Order Summary Widget-->
+                <section class="card widget widget-featured-posts widget-order-summary p-4">
+                    <h3 class="widget-title">Order Summary</h3>
+
+                    <p class="free-shippin-aa"><em>Free Shipping After Order $1,000.00</em></p>
+
+                    <table class="table">
+                        
+                        
+                        <tr>
+                            <td>Items Total:({{session['Shoppingcart']|length}})</td>
+                            <td class="text-gray-dark">${{grandtotal}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>Estimated tax:</td>
+                            <td class="text-gray-dark">$3.35</td>
+                        </tr>
+
+                        <tr class="d-none set__state_price_tr">
+                            <td>State tax:</td>
+                            <td class="text-gray-dark set__state_price">$0.00</td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="text-lg text-primary">Order total</td>
+                            <td class="text-lg text-primary grand_total_set">$${{grandtotal}}</td>
+                        </tr>
+                       
+                    </table>
+                    <div class="panel-body">
+                        <form action="{{url_for('main.get_pdf', invoice=orders.invoice)}}" method="post">
+   
+                            <button type="subnit" class="btn btn-danger btn-sm mr-4 float-right">
+                                Get PDF
+                            </button>
+                        </form>
+                   </div>
+                </section>
+                <!-- Items in Cart Widget-->
+                <section class="card widget widget-featured-posts widget-featured-products p-4">
+                    <h3 class="widget-title">Items In Your Cart</h3>
+
+                    {% for key , product in session['Shoppingcart'].items() %}
+                 
+                    <div class="entry">
+                        <div class="entry-thumb">
+                            <a href="">
+                                <img src="{{url_for('static', filename='img/'+ product.image)}}" alt="Product"></a></div>
+                        <div class="entry-content">
+                            <h4 class="entry-title"><a href="#">{{product.name}}</a></h4>
+                            <span class="entry-meta">1 x {{product.price}}</span>
+                           
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                </section>
+
+
+            </aside>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <hr class="offset-md">
+
+    <div class="box">
+      <div class="container">
+          <h1>Checkout order</h1>
+      </div>
+    </div>
+    <hr class="offset-md">
+
+    <div class="container">
+      <div class="row">
+          <form class="join" action="" method="POST" enctype="multipart/form-data">
+          <div class="col-md-8">
+            <div class="panel panel-default">
+              <div class="panel-body">
+
+                <div class="checkout">
+                    <div class="addresses box-select">
+                      {{ form.hidden_tag() }}
+                        <h2> 1. Delevery address</h2>
+                        <hr class="offset-sm">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.firstname.label(class='form-control-label') }}
+                            {% if form.firstname.errors %}
+                                {{ form.firstname(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.firstname.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.firstname(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.lastname.label(class='form-control-label') }}
+                            {% if form.lastname.errors %}
+                                {{ form.lastname(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.lastname.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.lastname(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.email.label(class='form-control-label') }}
+                            {% if form.email.errors %}
+                                {{ form.email(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.email(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                            {{ form.phone.label(class='form-control-label') }}
+                            {% if form.phone.errors %}
+                                {{ form.phone(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.phone.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                 {{ form.phone(class='form-control form-control-lg') }}
+                            {% endif %}
+                        </div>
+                        </div>
+                        <hr class="offset-sm">
+                        <a type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                         Click here to Add your address
+                        </a>
+                        <hr class="offset-sm">
+                        <div class="collapse" id="collapseExample">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="row group">
+                                        <div class="col-sm-4"><h2 class="h4">Please enter your country</h2></div>
+                                        <div class="col-sm-8">
+                                          <!-- <input type="text" class="form-control" name="country" value="" required="" placeholder="" /> -->
+
+                                          <div class="group-select justify" tabindex='1'>
+                                            <div class="col-sm-12">
+                                              <div class="form-group">
+                                                {{ form.country.label(class='form-control-label') }}
+                                                {% if form.country.errors %}
+                                                    {{ form.country(class='form-control form-control-lg is-invalid') }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.country.errors %}
+                                                            <span>{{ error }}</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                     {{ form.country(class='form-control form-control-lg') }}
+                                                {% endif %}
+                                            </div>
+                                            </div>   
+                                          </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="offset-sm">
+                                    <div class="row">
+                                      <div class="col-sm-4">
+                                        
+                                          <div class="form-group">
+                                            {{ form.city.label(class='form-control-label') }}
+                                            {% if form.city.errors %}
+                                                {{ form.city(class='form-control form-control-lg is-invalid') }}
+                                                <div class="invalid-feedback">
+                                                    {% for error in form.city.errors %}
+                                                        <span>{{ error }}</span>
+                                                    {% endfor %}
+                                                </div>
+                                            {% else %}
+                                                 {{ form.city(class='form-control form-control-lg') }}
+                                            {% endif %}
+                                        </div>
+                                        
+                                      </div>
+                                      <div class="col-sm-4">
+                                        <hr class="offset-sm visible-xs">
+                                      
+
+                                        <div class="form-group">
+                                          {{ form.street.label(class='form-control-label') }}
+                                          {% if form.street.errors %}
+                                              {{ form.street(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.street.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.street(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                      </div>
+                                      </div>
+                                      <div class="col-sm-2">
+                                        <hr class="offset-sm visible-xs">
+                                       
+
+                                        <div class="form-group">
+                                          {{ form.building.label(class='form-control-label') }}
+                                          {% if form.building.errors %}
+                                              {{ form.building(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.building.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.building(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                      </div>
+                                      </div>
+                                      <div class="col-sm-2">
+                                        <hr class="offset-sm visible-xs">
+                                      
+
+                                        <div class="form-group">
+                                          {{ form.zip.label(class='form-control-label') }}
+                                          {% if form.zip.errors %}
+                                              {{ form.zip(class='form-control form-control-lg is-invalid') }}
+                                              <div class="invalid-feedback">
+                                                  {% for error in form.zip.errors %}
+                                                      <span>{{ error }}</span>
+                                                  {% endfor %}
+                                              </div>
+                                          {% else %}
+                                               {{ form.zip(class='form-control form-control-lg') }}
+                                          {% endif %}
+                                      </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" value="">
+                            Use as billing address
+                          </label>
+                        </div>
+
+                        <hr class="offset-sm">
+                        <hr>
+                    </div>
+
+                    <div class="delivery box-select">
+                        <h2> 2. Delevery option </h2>
+                        <hr class="offset-sm">
+                        <p>We will try our best to deliver your order on the specified date.</p>
+                        <div class="col-sm-12">
+                            <p>delivery date (optional)</p>
+
+                            <div class="form-group">
+                              {{ form.date_created.label(class='form-control-label') }}
+                              {% if form.date_created.errors %}
+                                  {{ form.date_created(class='form-control form-control-lg is-invalid') }}
+                                  <div class="invalid-feedback">
+                                      {% for error in form.date_created.errors %}
+                                          <span>{{ error }}</span>
+                                      {% endfor %}
+                                  </div>
+                              {% else %}
+                                   {{ form.date_created(class='form-control form-control-lg') }}
+                              {% endif %}
+                          </div>
+                          </div>
+
+
+                        <hr class="offset-sm">
+                        <hr>
+                    </div>
+
+                    <div class="payment box-select">
+                        <h2> 3. Payment </h2>
+                        <hr class="offset-sm">
+                        
+                        <div class="row"> 
+                            <div class="col-md-6">
+                                <div class="box-default sm-padding">
+                                    <hr class="offset-sm">
+                                    <img src="../static/img/payments/stripe.jpg" title="stripe" alt="stripe" />
+                                    <span>&nbsp;&nbsp;1% Service fee</span>
+                                    <div class="check">
+                                        <i class="ion-checkmark-round"></i>
+                                    </div>
+                                    <hr class="offset-sm">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <hr class="offset-sm">
+                        <hr>
+                    </div>
+
+                    <div class="payment box-select">
+                        <h2> 4. Remark </h2>
+                        <hr class="offset-sm">
+                        <div class="form-group">
+                          {{ form.description.label(class='form-control-label') }}
+                          {% if form.description.errors %}
+                              {{ form.description(class='form-control form-control-lg is-invalid') }}
+                              <div class="invalid-feedback">
+                                  {% for error in form.description.errors %}
+                                      <span>{{ error }}</span>
+                                  {% endfor %}
+                              </div>
+                          {% else %}
+                               {{ form.description(class='form-control form-control-lg') }}
+                          {% endif %}
+                      </div>
+                        <hr class="offset-sm">
+                    </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-sm-8 col-md-4">
+            <hr class="offset-sm visible-sm">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <h2 class="no-margin">Summary</h2>
+                  <hr class="offset-md">
+                   {% for key , product in session['Shoppingcart'].items() %}
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-6">
+                              <p>{{product.name}}</p>
+                          </div>
+                          <div class="col-xs-6">
+                              <p><b>${{product.price}}</b></p>
+                          </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+                  <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <p>Subtotal ({{session['Shoppingcart']|length}} items)</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p><b>${{grandtotal}}</b></p>
+                        </div>
+                    </div>
+                </div>
+                  <div class="checkboxes">
+                      <div class="radio">
+                        <label>
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                          Coupon
+                        </label>
+                      </div>
+                  </div>
+                  <hr>
+
+                  <div class="container-fluid">
+                      <div class="row">
+                          <div class="col-xs-6">
+                              <h3 class="no-margin">Total sum</h3>
+                          </div>
+                          <div class="col-xs-6">
+                              <h3 class="no-margin">${{grandtotal}}</h3>
+                          </div>
+                      </div>
+                  </div>
+                  <hr class="offset-md">
+                    <div class="btn btn-primary btn-lg justify">
+                        <i class="ion-compose"></i>&nbsp;&nbsp;{{ form.submit(class='btn btn-primary') }}
+                    </div>
+                </div>
+              </div>
+          </div>
+           </form>
+         <div class="col-sm-8 col-md-4">
+            <hr class="offset-sm visible-sm">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                     <form action="{{url_for('main.get_pdf', invoice=orders.invoice)}}" method="post">
+
+                         <button type="subnit" class="btn btn-danger btn-sm mr-4 float-right">
+                             Get PDF
+                         </button>
+                     </form>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <hr class="offset-lg">
+    <hr class="offset-lg">
+
+{% endblock content %}

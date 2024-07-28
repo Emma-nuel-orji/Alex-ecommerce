@@ -31,7 +31,7 @@ def productpost():
     elif request.method == 'GET':
         image_file = url_for('static', filename='img/' + Blog.image)
         image_file = url_for('static', filename='img/' + current_user.image_file)
-    return render_template('admin/productpost.html', form=form, image_file=image_file)
+    return render_template('productpost.html', form=form, image_file=image_file)
 
 
 @prod.route('/single_product', methods=['GET', 'POST'])

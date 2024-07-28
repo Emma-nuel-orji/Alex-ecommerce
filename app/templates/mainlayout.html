@@ -58,11 +58,17 @@ body_theme1
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
+                    
+                </div>
+                {% if current_user.email == 'sativatrendy@gmail.com' %}
+                <div class="">
                     <div class="t-m-s-a">
-                        <a class="track-order-link" href="#"><i class="icon-database"></i>Dashboard</a>
+                        <a class="track-order-link" href="{{ url_for('admin.home') }}"><i class="icon-database"></i>Dashboard</a>
                        
                     </div>
                 </div>
+                {% endif %}
+                {% if current_user.is_authenticated %}
                 <div class="col-md-8">
                     <div class="right-area">
 
@@ -74,19 +80,22 @@ body_theme1
                         </div>
                         
                         <div class="t-h-dropdown ">
-                            <a class="main-link" href="{{ url_for('users.account') }}">Logout<i class="icon-log-out"></i></a>
+                            <a class="main-link" href="{{ url_for('users.logout') }}">Logout<i class="icon-log-out"></i></a>
                             
                         </div>
 
+                      
+                      {% else %}
                     <div class="login-register ">
                         <a class="track-order-link mr-0" href="{{ url_for('users.register') }}">Login/Register
                             </a>
-                        </div>
+                    </div>
 
-                        
+                        {% endif %}
                     </div>
 
                 </div>
+                
             </div>
         </div>
     </div>

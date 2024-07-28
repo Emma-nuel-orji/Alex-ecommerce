@@ -27,7 +27,7 @@ def blogpost():
     elif request.method == 'GET':
         image_file = url_for('static', filename='img/' + Blog.image)
         image_file = url_for('static', filename='img/' + current_user.image_file)
-    return render_template('admin/blogpost.html', form=form, image_file=image_file)
+    return render_template('blogpost.html', form=form, image_file=image_file)
 
 
 @blogs.route('/image', methods=['GET', 'POST'])
@@ -50,7 +50,7 @@ def image():
     elif request.method == 'GET':
         image_file = url_for('static', filename='img/' + Blog.image)
         image_file = url_for('static', filename='img/' + current_user.image_file)
-    return render_template('admin/image.html', form=form, image_file=image_file)
+    return render_template('image.html', form=form, image_file=image_file)
 
 
 @blogs.route('/blog', methods=['GET', 'POST'])

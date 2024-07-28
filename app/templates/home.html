@@ -1,0 +1,194 @@
+{% extends 'admin.html' %}
+{% block content %}
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 align-self-center">
+                        <h3 class="text-themecolor">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">USERS</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                    <div class="col-md-7 align-self-center">
+                        <a href="{{ url_for('main.index') }}" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down"> Back to Home page</a>
+                    </div>
+                </div>
+                 {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                           {% for category, message in messages %}
+                               <div class="alert alert-{{ category }}">
+                                   {{ message }}
+                               </div>
+                           {% endfor %}
+                      {% endif %}
+                  {% endwith %}
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Basic Table</h4>
+                                <h6 class="card-subtitle">these are your current <code>users</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th> USERNAME</th>
+                                                <th>EMAIL</th>
+                                                <th>PHONE</th>
+                                                <th>ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for user in users %}
+                                            <tr>
+                                                <td>{{ user.id }}</td>
+                                                <td>{{ user.username }}</td>
+                                                <td>{{ user.email }}</td>
+                                                <td>{{ user.phone }}</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <a href="/catalog" class="dropdown-toggle"
+                                                           data-toggle="dropdown" role="button" aria-haspopup="true"
+                                                           aria-expanded="false">ACTION <span class="caret"></span></a>
+                                                        <div class="dropdown-menu">
+                                                            <li class="bx bx-trash me-1"><a href="{{ url_for('users.delete_user',user_id=user.id) }}">DELETE</a></li>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Sales Chart -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Projects of the Month -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Product Table</h4>
+                                <h6 class="card-subtitle">these are your current <code>Products</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th>PRODUCT NAME</th>
+                                                <th>PRICE</th>
+                                                <th>DISCOUNT</th>
+                                                <th>CATEGORY</th>
+                                                <th>IMAGE</th>
+                                                <th>DELETE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for prod in product %}
+                                            <tr>
+                                                <td>{{ prod.id }}</td>
+                                                <td>{{ prod.name }}</td>
+                                                <td>{{ prod.price }}</td>
+                                                <td>{{ prod.discount }}</td>
+                                                <td>{{ prod.category }}</td>
+                                                <td><img  src="{{url_for('static', filename='img/' + prod.image)}}" width="80" height="50"/></td>
+                                                <td><div class="bx bx-trash me-1"><a href="{{ url_for('recom.delete_prod',prod_id=prod.id) }}">DELETE</a></div></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Projects of the Month -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Notification And Feeds -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Recommendation Table</h4>
+                                <h6 class="card-subtitle">these are your current <code>posts</code></h6>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>S/N</th>
+                                                <th>PRODUCT NAME</th>
+                                                <th>PRICE</th>
+                                                <th>DISCOUNT</th>
+                                                <th>CATEGORY</th>
+                                                <th>IMAGE</th>
+                                                <th>DELETE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for rec in recommendation %}
+                                            <tr>
+                                                <td>{{ rec.id }}</td>
+                                                <td>{{ rec.name }}</td>
+                                                <td>{{ rec.price }}</td>
+                                                <td>{{ rec.discount }} %</td>
+                                                <td>{{ rec.category }}</td>
+                                                <td><img  src="{{url_for('static', filename='img/' + rec.image)}}" width="70" height="50"/></td>
+                                                <td><div class="bx bx-trash me-1"><a href="{{ url_for('recom.delete_rec',rec_id=rec.id) }}">DELETE</a></div></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Notification And Feeds -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- End Page Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer"> © 2022 Adminwrap by Sir Trendy.com </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+
+{% endblock content %}

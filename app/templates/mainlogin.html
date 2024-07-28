@@ -22,30 +22,56 @@
   <div class="container padding-bottom-3x mb-1">
   <div class="row">
           <div class="col-md-12">
-            <form class="card" method="post" action="https://geniusdevs.com/codecanyon/omnimart40/user/login-submit">
+            <form class="card" method="POST" action="" novalidate >
+               
+                    {{ form.hidden_tag() }}
                 <input type="hidden" name="_token" value="1VJ0S5rM5TZEt1mljRkgwSrGOBd7FsZgTpOGoyCm" autocomplete="off">              <div class="card-body ">
                 <h4 class="margin-bottom-1x text-center">Login</h4>
 
                 <div class="form-group input-group">
-                  <input class="form-control" type="email" name="login_email" placeholder="Email" value="user@gmail.com"><span class="input-group-addon"><i class="icon-mail"></i></span>
+                    {{ form.email.label(class='form-control-label') }}
+                    {% if form.email.errors %}
+                        {{ form.email(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.email(class='form-control form-control-lg') }}
+                    {% endif %}
+                  <span class="input-group-addon"><i class="icon-mail"></i></span>
                 </div>
                 
                 <div class="form-group input-group">
-                  <input class="form-control" type="password" name="login_password" placeholder="Password" value="password" ><span class="input-group-addon"><i class="icon-lock"></i></span>
+                    {{ form.password.label(class='form-control-label') }}
+                    {% if form.password.errors %}
+                        {{ form.password(class='form-control form-control-lg is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                         {{ form.password(class='form-control form-control-lg') }}
+                    {% endif %}
+                  <span class="input-group-addon"><i class="icon-lock"></i></span>
                 </div>
                 
                 <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
                   <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox" id="remember_me">
-                    <label class="custom-control-label" for="remember_me">Remember me</label>
-                  </div><a class="navi-link" href="forgot.html">Forgot password?</a>
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-input-label") }}
+                  </div>
+                  <a class="navi-link" href="{{ url_for('users.reset_request') }}">Forgot password?</a>
                 </div>
                 <div class="text-center">
-                  <button class="btn btn-primary margin-bottom-none" type="submit"><span>Login</span></button>
+                    {{ form.submit(class='btn btn-primary') }}
+                  <!--<button class="btn btn-primary margin-bottom-none" type="submit"><span>Login</span></button>-->
                 </div>
                 <div class="row">
                     <p>
-                        Don't have an account? Create one now! <a href="/register"> Registration > </a>
+                        Don't have an account? Create one now! <a href="{{ url_for('users.register') }}"> Registration > </a>
                       </p>
 
                    

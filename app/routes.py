@@ -156,7 +156,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 #     gallery = Gallery.query.all()
 #     product = Product.query.all()
 #     recom = Recommendation.query.all()
-#     if current_user.id != 2:
+#     if current_user.email != 'sativatrendy@gmail.com':
 #         flash('Please you cant access to this page', 'danger')
 #         return redirect(url_for('index', users=users, gallery=gallery, product=product, recom=recom))
 #     else:
@@ -279,7 +279,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 # @app.route("/delete_user/<int:user_id>/delete", methods=['GET', 'POST'])
 # def delete_user(user_id):
 #     user = User.query.get_or_404(user_id)
-#     if current_user.id != 2:
+#     if current_user.email != 'sativatrendy@gmail.com':
 #         abort(403)
 #     db.session.delete(user)
 #     db.session.commit()
@@ -291,7 +291,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 # @app.route("/delete_prod/<int:prod_id>/delete", methods=['GET', 'POST'])
 # def delete_prod(prod_id):
 #     products = Product.query.get_or_404(prod_id)
-#     if current_user.id != 2:
+#     if current_user.email != 'sativatrendy@gmail.com':
 #         abort(403)
 #     db.session.delete(products)
 #     db.session.commit()
@@ -303,7 +303,7 @@ from flask_login import login_user, current_user, logout_user, login_required
 # @app.route("/delete_rec/<int:rec_id>/delete", methods=['GET', 'POST'])
 # def delete_rec(rec_id):
 #     recom = Recommendation.query.get_or_404(rec_id)
-#     if current_user.id != 2:
+#     if current_user.email != 'sativatrendy@gmail.com':
 #         abort(403)
 #     db.session.delete(recom)
 #     db.session.commit()

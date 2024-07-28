@@ -1,109 +1,125 @@
-{% extends 'layout.html' %}
-
+{% extends 'mainlayout.html' %}
 {% block content %}
 
-<hr class="offset-md">
+<!-- Page Content-->
 
-<div class="box">
-  <div class="container">
-      <h1>Shopping Cart</h1>
-      <hr class="offset-sm">
-  </div>
-</div>
-<hr class="offset-md">
-
-
-<div class="container">
-
-    <div class="row">
-        <div class="col-md-8">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <div class="checkout-cart">
-                  <div class="content">
-                    {% for key , product  in session['Shoppingcart'].items() %}
-                      <div class="media">
-                        <div class="media-left">
-                          <a href="#">
-                            <img class="media-object"  src="{{url_for('static', filename='img/'+ product.image)}}" alt="HP Chromebook 11"/>
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <h2 class="h4 media-heading">{{product.name}}</h2>
-                          <label>{{product.category}}</label>
-                          <p class="price">${{ (product.price)}}</p>
-                        </div>
-                        <div class="controls">
-                          <div class="input-group">
-
-                            <input type="text" class="form-control input-sm" placeholder="Qty" value="1" readonly="">
-
-                          </div><!-- /input-group -->
-
-                          <a href="{{url_for('carts.deleteitem', id=key)}}"> <i class="ion-trash-b"></i> Remove </a>
-                        </div>
-                      </div>
-                      {% endfor %}
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-        <div class="col-sm-8 col-md-4">
-          <hr class="offset-md visible-sm">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <h2 class="no-margin">Summary</h2>
-                <hr class="offset-md">
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <p>Subtotal ({{session['Shoppingcart']|length}} items)</p>
-                        </div>
-                        <div class="col-xs-6">
-                            <p><b>${{grandtotal}}</b></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <h3 class="no-margin">Total sum</h3>
-                        </div>
-                        <div class="col-xs-6">
-                            <h3 class="no-margin">${{grandtotal}}</h3>
-                        </div>
-                    </div>
-                </div>
-                  <hr>
-                  <hr class="offset-md">
-
-                <a href="{{url_for('main.checkout')}}" class="btn btn-primary btn-lg justify"><i class="ion-android-checkbox-outline"></i>&nbsp;&nbsp; Checkout order</a>
-                <hr class="offset-md">
-
-                <p>Pay your order in the most convenient way</p>
-                <div class="payment-icons">
-                  <img src="static/img/payments/icon-paypal.svg" alt="paypal">
-                  <img src="static/img/payments/icon-visa.svg" alt="visa">
-                  <img src="static/img/payments/icon-mc.svg" alt="mc">
-                  <img src="static/img/payments/icon-discover.svg" alt="discover">
-                  <img src="static/img/payments/icon-ae.svg" alt="ae">
-                </div>
-              </div>
+<div class="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumbs">
+                    <li><a href="https://geniusdevs.com/codecanyon/omnimart40">Home</a> </li>
+                    <li class="separator"></li>
+                    <li>Cart</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-<hr class="offset-lg">
-<hr class="offset-lg">
+
+<div class="container padding-bottom-3x mb-1">
+
+    <!-- Shopping Cart-->
+    <div id="view_cart_load">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive shopping-cart">
+                    <table class="table table-bordered">
+                        
+
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Product Price</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Subtotal</th>
+                                <th class="text-center"><a class="btn btn-sm btn-primary" href=""><span>Clear Cart</span></a></th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="cart_view_load" data-target="">
+                          {% for key , product  in session['Shoppingcart'].items() %}
+
+                            <tr>
+                                <td>
+                                <div class="product-item"><a class="product-thumb" href="#"><img
+                                    src="{{url_for('static', filename='img/'+ product.image)}}" alt="Product"></a>
+                                        <div class="product-info">
+                                            <h4 class="product-title"><a href="#">{{product.name}} </a></h4>
+
+                                            <!--<span><em>Color:</em>
+                                            Red
+                                            ($5.00)</span>
+                                            <span><em>Size:</em>
+                                            M
+                                            ($5.00)</span>-->
+
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="text-center text-lg">{{ (product.price)}}
+                                </td>
+
+                                <td class="text-center">
+                                    <div class="qtySelector product-quantity">
+                                        <span class="decreaseQtycart cartsubclick" data-id="587-Red,M" data-target="587"><i
+                                            class="fas fa-minus"></i></span>
+                                        <input type="text" disabled class="qtyValue cartcart-amount" value="1">
+                                        <span class="increaseQtycart cartaddclick" data-id="587-Red,M" data-target="587" data-item="429,1126"><i
+                                            class="fas fa-plus"></i></span>
+                                        <input type="hidden" value="3333" id="current_stock">
+                                    </div>
+
+                                </td>
+                                <td class="text-center text-lg">
+                                  {{ (product.price)}}</td>
+
+                                <td class="text-center"><a class="remove-from-cart" href="{{url_for('carts.deleteitem', id=key)}}" data-toggle="tooltip" title="Remove item"><i class="icon-x"></i></a></td>
+                            </tr>
+                            {% endfor %}
+
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="shopping-cart-footer">
+                    <div class="column">
+                        <form class="coupon-form" method="POST" id="coupon_form" action="">
+                            <input type="hidden" name="_token" value="E9rA6K4iiHZAC0okE0YBQaoA5nyImJXkntCP9NLW" autocomplete="off"> <input class="form-control form-control-sm" name="code" type="text" placeholder="Coupon code" required>
+                            <button class="btn btn-primary btn-sm" type="submit"><span>Apply Coupon</span></button>
+                        </form>
+                    </div>
+
+                    <div class="text-right text-lg column d-none"><span class="text-muted">Discount
+                () : </span><span class="text-gray-dark">$0.00</span>
+                        <a class="remove-from-cart btn btn-danger btn-sm " href="" data-toggle="tooltip" title="Remove item"><i class="icon-x"></i></a>
+                    </div>
+
+                    <div class="text-right column text-lg"><span class="text-muted">Subtotal: </span><span class="text-gray-dark">${{grandtotal}}</span>
+                    </div>
+
+
+                </div>
+                <div class="shopping-cart-footer">
+                    <div class="column"><a class="btn btn-primary " href="{{url_for('main.index')}}"><span><i
+                        class="icon-arrow-left"></i> Back to Shopping</span></a></div>
+                    <div class="column"><a class="btn btn-primary" href="{{url_for('main.checkout')}}"><span>Checkout</span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+
 
 {% endblock content %}
 

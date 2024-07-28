@@ -14,10 +14,10 @@ def home():
     product = Product.query.all()
     checkout = Checkout.query.all()
     recommendation = Recommendation.query.all()
-    if current_user.id != 2:
+    if current_user.email != 'sativatrendy@gmail.com':
         flash('Please you cant access to this page', 'danger')
         return redirect(url_for('index', users=users, gallery=gallery, product=product, recommendation=recommendation, checkout=checkout))
     else:
-        render_template('admin/home.html', users=users, gallery=gallery, product=product, recommendation=recommendation, checkout=checkout)
-    return render_template("admin/home.html", users=users, gallery=gallery, product=product,
+        render_template('home.html', users=users, gallery=gallery, product=product, recommendation=recommendation, checkout=checkout)
+    return render_template("home.html", users=users, gallery=gallery, product=product,
                            recommendation=recommendation, checkout=checkout)

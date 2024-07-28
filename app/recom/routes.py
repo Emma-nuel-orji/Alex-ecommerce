@@ -32,7 +32,7 @@ def recommendation():
     elif request.method == 'GET':
         image_file = url_for('static', filename='img/' + Blog.image)
         image_file = url_for('static', filename='img/' + current_user.image_file)
-    return render_template('admin/recommendation.html', form=form, image_file=image_file)
+    return render_template('recommendation.html', form=form, image_file=image_file)
 
 
 @recom.route("/recom/<int:recommendation_id>", methods=['GET', 'POST'])
@@ -44,23 +44,23 @@ def recommendations(recommendation_id):
 @recom.route("/delete_rec/<int:rec_id>/delete", methods=['GET', 'POST'])
 def delete_rec(rec_id):
     rec = Recommendation.query.get_or_404(rec_id)
-    if current_user.id != 2:
+    if current_user.email != 'sativatrendy@gmail.com':
         abort(403)
     db.session.delete(rec)
     db.session.commit()
     flash("the recommended product has been deleted successfully", 'success')
     return redirect(url_for('admin.home'))
-    return render_template("Admin/home.html", rec=rec)
+    return render_template("home.html", rec=rec)
 
 
 @recom.route("/delete_prod/<int:prod_id>/delete", methods=['GET', 'POST'])
 def delete_prod(prod_id):
     prod = Product.query.get_or_404(prod_id)
-    if current_user.id != 2:
+    if current_user.email != 'sativatrendy@gmail.com':
         abort(403)
     db.session.delete(prod)
     db.session.commit()
     flash("the product has been deleted successfully", 'success')
     return redirect(url_for('admin.home'))
-    return render_template("Admin/home.html", prod=prod)
+    return render_template("home.html", prod=prod)
 
