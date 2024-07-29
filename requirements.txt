@@ -32,7 +32,7 @@ psycopg2==2.9.9
 
 PyJWT==1.4.2
 
-setuptools==69.2.0
+setuptools==70.0.0
 SQLAlchemy==1.4.34
 
 typing_extensions==4.7.1
