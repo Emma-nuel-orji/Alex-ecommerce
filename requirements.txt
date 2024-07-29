@@ -41,7 +41,7 @@ SQLAlchemy==1.4.34
 
 typing_extensions==4.7.1
 
-Werkzeug==2.3.6
+Werkzeug==3.0.3
 wheel==0.41.2
 
 WTForms==3.1.2
