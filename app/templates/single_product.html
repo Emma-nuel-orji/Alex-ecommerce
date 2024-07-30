@@ -1,5 +1,562 @@
-{% extends 'layout.html' %}
+{% extends 'mainlayout.html' %}
 {% block content %}
+
+
+    <!-- Page Content-->
+    <div class="page-title">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12">
+                  <ul class="breadcrumbs">
+                      <li><a href="https://geniusdevs.com/codecanyon/omnimart40">Home</a>
+                      </li>
+                      <li class="separator"></li>
+                      <li><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog">Shop</a>
+                      </li>
+                      <li class="separator"></li>
+                      <li>Home Use Beauty Device Face Massager Facial Lifting Tool Beauty Anti-Aging</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Page Content-->
+  <div class="container padding-bottom-1x mb-1">
+      <div class="row">
+          <!-- Poduct Gallery-->
+          <div class="col-xxl-5 col-lg-6 col-md-6">
+              <div class="product-gallery">
+                  <div class="gallery-wrapper">
+                      <div class="gallery-item video-btn text-center">
+                          <a href="https://www.youtube.com/watch?v=6ZVEAXmupEo" title="Watch video"></a>
+                      </div>
+                  </div>
+                  <span class="product-badge
+                  bg-success
+                  ">New</span>
+
+
+                  <div class="product-badge bg-goldenrod  ppp-t"> -29%</div>
+
+                  <div class="product-thumbnails insize">
+                      <div class="product-details-slider owl-carousel">
+                          <div class="item"><img src="{{url_for('static', filename='img/' + prod.image)}}" alt="zoom" /></div>
+                          <div class="item"><img src="{{url_for('static', filename='img/' + prod.image)}}" alt="zoom" /></div>
+                          <div class="item"><img src="{{url_for('static', filename='img/' + prod.image)}}" alt="zoom" /></div>
+                          <div class="item"><img src="{{url_for('static', filename='img/' + prod.image)}}" alt="zoom" /></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Product Info-->
+          <div class="col-xxl-7 col-lg-6 col-md-6">
+              <div class="details-page-top-right-content d-flex align-items-center">
+                  <div class="div w-100">
+                      <input type="hidden" id="item_id" value="585">
+                      <input type="hidden" id="demo_price" value="1352.81">
+                      <input type="hidden" value="$" id="set_currency">
+                      <input type="hidden" value="1" id="set_currency_val">
+                      <input type="hidden" value="1" id="currency_direction">
+                      <h4 class="mb-2 p-title-main">{{ prod.name }}</h4>
+                      <div class="mb-3">
+                          <div class="rating-stars d-inline-block gmr-3">
+                              <i class='far fa-star'></i><i class='far fa-star'></i><i class='far fa-star'></i><i class='far fa-star'></i><i class='far fa-star'></i>
+                          </div>
+                          <span class="text-success  d-inline-block">In Stock <b>(198 items)</b></span>
+                      </div>
+
+
+                    
+
+          
+
+
+                      <span class="h3 d-block price-area">
+                                          <small class="d-inline-block"><del>${{ prod.discount }}</del></small>
+                                      <span id="main_price" class="main-price">${{ prod.price }}</span>
+                      </span>
+
+                      <p class="text-muted">{{ prod.desc }}...... <a href="#details" class="scroll-to">Read more</a></p>
+
+                      <div class="row margin-top-1x">
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="Color">Color</label>
+                                  <select class="form-control attribute_option" id="Color">
+                                                                      <option value="Red" data-type="52" data-href="421" data-target="5">Red</option>
+                                                                      <option value="Blue" data-type="52" data-href="422" data-target="6">Blue</option>
+                                                                      <option value="Black" data-type="52" data-href="423" data-target="7">Black</option>
+                                                                      <option value="Pink" data-type="52" data-href="424" data-target="8">Pink</option>
+                                                                    </select>
+                              </div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div class="form-group">
+                                  <label for="Size">Size</label>
+                                  <select class="form-control attribute_option" id="Size">
+                                                                      <option value="M" data-type="106" data-href="1124" data-target="5">M</option>
+                                                                      <option value="L" data-type="106" data-href="1170" data-target="6">L</option>
+                                                                      <option value="XL" data-type="106" data-href="1216" data-target="7">XL</option>
+                                                                      <option value="XXL" data-type="106" data-href="1262" data-target="7">XXL</option>
+                                                                    </select>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row align-items-end pb-4">
+                          <div class="col-sm-12">
+                              <div class="qtySelector product-quantity">
+                                  <span class="decreaseQty subclick"><i class="fas fa-minus "></i></span>
+                                  <input type="text" class="qtyValue cart-amount" value="1">
+                                  <span class="increaseQty addclick"><i class="fas fa-plus"></i></span>
+                                  <input type="hidden" value="3333" id="current_stock">
+                              </div>
+                              <form action="{{ url_for('carts.AddCart') }}" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="product_id" value="{{prod.id}}">
+
+                              <div class="p-action-button">
+                                  <button type="submit" class="btn btn-primary m-0 a-t-c-mr" id="add_to_cart"><i class="icon-bag"></i><span>Add to Cart</span></button>
+                                  <a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?tag=women"> <button type="submit" class="btn btn-primary m-0" id="but_to_cart"><i class="icon-bag"></i><span>Buy Now</span></button></a>
+
+                              </div>
+                            </form>
+
+                          </div>
+                      </div>
+
+                      <div class="div">
+                          <div class="t-c-b-area">
+
+                              <div class="pt-1 mb-1"><span class="text-medium">Categories:</span>
+                                  <a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care">Beauty &amp; Personal Care</a> /
+                                  <a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?subcategory=Personal-Care">Personal Care</a>
+                                  <a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?childcategory="></a>
+                              </div>
+                              <div class="pt-1 mb-1"><span class="text-medium">Tags:</span>
+                                  <a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?tag=women">women</a>,
+                                  <a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?tag=dresses">dresses</a>
+                              </div>
+                              <div class="pt-1 mb-4"><span class="text-medium">SKU:</span> #65dVy83xxd08</div>
+                          </div>
+
+                          <div class="mt-4 p-d-f-area">
+                              <div class="left">
+                                  <a class="btn btn-primary btn-sm wishlist_store wishlist_text" href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/585"><span><i class="icon-heart"></i></span>
+                                                              <span class="wishlist1">Wishlist</span>
+                              <span class="wishlist2 d-none">Added To Wishlist</span>
+                                                              </a>
+                                  <button class="btn btn-primary btn-sm  product_compare" data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/585"><span><i class="icon-repeat"></i>Compare</span></button>
+                              </div>
+
+                              <div class="d-flex align-items-center">
+                                  <span class="text-muted mr-1">Share: </span>
+                                  <div class="d-inline-block a2a_kit">
+                                      <a class="facebook  a2a_button_facebook" href="">
+                                      <span><i class="fab fa-facebook-f"></i></span>
+                                  </a>
+                                      <a class="twitter  a2a_button_twitter" href="">
+                                      <span><i class="fab fa-twitter"></i></span>
+                                  </a>
+                                      <a class="linkedin  a2a_button_linkedin" href="">
+                                      <span><i class="fab fa-linkedin-in"></i></span>
+                                  </a>
+                                      <a class="pinterest   a2a_button_pinterest" href="">
+                                      <span><i class="fab fa-pinterest"></i></span>
+                                  </a>
+                                  </div>
+                                  <script async src="https://static.addtoany.com/menu/page.js"></script>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class=" padding-top-3x mb-3" id="details">
+              <div class="col-lg-12">
+                  <ul class="nav nav-tabs" role="tablist">
+                      <li class="nav-item" role="presentation">
+                          <a class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="description" aria-selected="true">Descriptions</a>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                          <a class="nav-link" id="specification-tab" data-bs-toggle="tab" data-bs-target="#specification" type="button" role="tab" aria-controls="specification" aria-selected="false">Specifications</a>
+                      </li>
+                  </ul>
+                  <div class="tab-content card">
+                      <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                       
+
+              {{ prod.desc }}
+              </div>
+              <div class="tab-pane fade show " id="specification " role="tabpanel " aria-labelledby="specification-tab ">
+              <div class="comparison-table ">
+                  <table class="table table-bordered ">
+                      <thead class="bg-secondary ">
+                      </thead>
+                      <tbody>
+                      <tr class="bg-secondary ">
+                          <th class="text-uppercase ">Specifications</th>
+                          <td><span class="text-medium ">Descriptions</span></td>
+                      </tr>
+                                                                      <tr>
+                          <th>Product Type:</th>
+                          <td>Velvet elegant sleeveless evening dress</td>
+                      </tr>
+                                              <tr>
+                          <th>Material:</th>
+                          <td>Polyester / Spandex</td>
+                      </tr>
+                                              <tr>
+                          <th>Lining Material:</th>
+                          <td>Polyester</td>
+                      </tr>
+                                              <tr>
+                          <th>Fabric Type:</th>
+                          <td>Fleece</td>
+                      </tr>
+                                              <tr>
+                          <th>Technics:</th>
+                          <td>Plain dyed</td>
+                      </tr>
+                                              <tr>
+                          <th>Decoration:</th>
+                          <td>Sequins</td>
+                      </tr>
+                                              <tr>
+                          <th>Size:</th>
+                          <td>S/M/L</td>
+                      </tr>
+                                                                      </tbody>
+                  </table>
+                  </div>
+              </div>
+          </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Reviews-->
+<div class="container review-area ">
+  <div class="row ">
+      <div class="col-lg-12 ">
+          <div class="section-title ">
+              <h2 class="h3 ">Latest Reviews</h2>
+          </div>
+      </div>
+  </div>
+  <div class="row ">
+      <div class="col-md-8 ">
+                          <div class="card p-5 ">
+              No Review
+            </div>
+                          <div class="row mt-15 ">
+              <div class="col-lg-12 text-center ">
+                  
+              </div>
+          </div>
+
+        </div>
+        <!--<div class="col-md-4 mb-4 ">
+          <div class="card ">
+            <div class="card-body ">
+              <div class="text-center ">
+                <div class="d-inline align-baseline display-3 mr-1 ">0</div>
+                <div class="d-inline align-baseline text-sm text-warning mr-1 ">
+                  <div class="rating-stars "><i class = 'far fa-star'></i><i class = 'far fa-star'></i><i class = 'far fa-star'></i><i class = 'far fa-star'></i><i class = 'far fa-star'></i></div>
+                </div>
+              </div>
+              <div class="pt-3 ">
+                <label class="text-medium text-sm ">5 stars <span class="text-muted ">- 0</span></label>
+                <div class="progress margin-bottom-1x ">
+                  <div class="progress-bar bg-warning " role="progressbar " style="width: 0%; height: 2px; " aria-valuenow="100 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                </div>
+                <label class="text-medium text-sm ">4 stars <span class="text-muted ">- 0</span></label>
+                <div class="progress margin-bottom-1x ">
+                  <div class="progress-bar bg-warning " role="progressbar " style="width: 0%; height: 2px; " aria-valuenow="0 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                </div>
+                <label class="text-medium text-sm ">3 stars <span class="text-muted ">- 0</span></label>
+                <div class="progress margin-bottom-1x ">
+                  <div class="progress-bar bg-warning " role="progressbar " style="width: 0%; height: 2px; " aria-valuenow="0 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                </div>
+                <label class="text-medium text-sm ">2 stars <span class="text-muted ">- 0</span></label>
+                <div class="progress margin-bottom-1x ">
+                  <div class="progress-bar bg-warning " role="progressbar " style="width: 0%; height: 2px; " aria-valuenow="0 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                </div>
+                <label class="text-medium text-sm ">1 star <span class="text-muted ">- 0</span></label>
+                <div class="progress mb-2 ">
+                  <div class="progress-bar bg-warning " role="progressbar " style="width: 0; height: 2px; " aria-valuenow="0 " aria-valuemin="0 " aria-valuemax="100 "></div>
+                </div>
+              </div>
+                                  <div class="pb-2 "><a class="btn btn-primary btn-block " href="https://geniusdevs.com/codecanyon/omnimart40/user/login " ><span>Login</span></a></div>
+                            </div>
+          </div>
+        </div>-->
+
+
+  </div>
+</div>
+
+
+  <div class="relatedproduct-section container padding-bottom-3x mb-1 s-pt-30 ">
+  <!-- Related Products Carousel-->
+  <div class="row ">
+      <div class="col-lg-12 ">
+          <div class="section-title ">
+              <h2 class="h3 ">You May Also Like</h2>
+          </div>
+      </div>
+  </div>
+  <!-- Carousel-->
+  <div class="row ">
+      <div class="col-lg-12 ">
+          <div class="relatedproductslider owl-carousel " >
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                                                                                                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/16341345587a1H6e71ffd70a134245aaab2261bf685508j.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/569 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/569 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="569 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/AMEIZII-Beauty-And-Personal-Care-Face-Skin-Masks-Nose-Blackhead-Remover ">
+                              AMEIZII Beauty And Personal Care Fa...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                                                                                                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1634134534qTHH1575ae72d5e144cfbf237196d6ea139bj.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/570 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/570 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="570 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/OEM-ODM-Fullerene-essence-best-face-moisturizer-whitening-anti-aging-cream ">
+                              OEM ODM Fullerene essence best face...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                                                                                                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1634134515gdzH8064fa369ca644958a52846035a40641p.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/571 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/571 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="571 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/Korean-Beauty-Organic-Brightening-Peel-off-Hyaluronic-Acid-Facial-Jelly-Powder ">
+                              Korean Beauty Organic Brightening P...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                                                                                                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/16341342918rPHabf8df421e5b4d99b802fc6120d050a7N.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/580 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/580 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="580 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/Mask-stick-to-your-face-moisture-skin-care-clay-facial-natural-moisturiser-low-moq ">
+                              Mask stick to your face moisture sk...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                                                                                                  
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1634134273FQVHcfd42cbddf7b40b08d3f9048f4d425e5A.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/581 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/581 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="581 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/CGtFace-Lift-Band-Facial-Beauty-Slimming-Double-Chin-Bandage-Strap-Weight1U ">
+                              Face Lift Band Facial Beauty Slimmi...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                              <div class="product-badge bg-dark ">Best</div>
+                                                                                                                                              <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1634134262rpfHdee8e662b5c747d69275ffd10450d8c1u.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/582 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/582 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="582 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/Mini-Electric-Silicone-Face-Brush-Massager-Cepillo-Facial-Beautiful-Silicone-Facial-Cleansing-Brush ">
+                              Mini Electric Silicone Face Brush M...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                                                                                                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/163413424721nHe4cca751c6c94532958892118104e47ck.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/583 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/583 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="583 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/Beauty-Beauty-Anti-wrinkle-USB-Charging-Neck-Wrinkle-Removal-Neck-Care ">
+                              Beauty Beauty Anti-wrinkle USB Char...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                                  <div class="slider-item ">
+                      <div class="product-card ">
+
+                                                                                              <div class="product-badge bg-dark ">Best</div>
+                                                                                                                                              <div class="product-badge product-badge2 bg-info "> -29%</div>
+                          
+                                                      <div class="product-badge product-badge2 bg-info "> -29%</div>
+                                                      <div class="product-thumb ">
+                              <img class="lazy " data-src="https://geniusdevs.com/codecanyon/omnimart40/assets/images/1634134231tV8HTB1HSCEe25G3KVjSZPxq6zI3XXao.jpg " alt="Product ">
+                              <div class="product-button-group ">
+                                  <a class="product-button wishlist_store " href="https://geniusdevs.com/codecanyon/omnimart40/user/wishlist/store/584 " title="Wishlist "><i class="icon-heart "></i></a>
+                                  <a class="product-button product_compare " href="javascript:; " data-target="https://geniusdevs.com/codecanyon/omnimart40/compare/product/584 " title="Compare "><i class="icon-repeat "></i></a>
+                                  <a class="product-button add_to_single_cart "  data-target="584 " href="javascript:; "  title="To Cart "><i class="icon-shopping-cart "></i>
+  </a>
+                                      </div>
+                              </div>
+                          <div class="product-card-body ">
+                            <div class="product-category "><a href="https://geniusdevs.com/codecanyon/omnimart40/catalog?category=Beauty--Personal-Care ">Beauty &amp; Personal Care</a></div>
+                            <h3 class="product-title "><a href="https://geniusdevs.com/codecanyon/omnimart40/product/sEcLatex-free-makeup-sponge-Customized-beauty-make-up-blender-makeup-spongpD ">
+                              Latex free makeup sponge Customized...
+                          </a></h3>
+                            <h4 class="product-price ">
+                                                                  <del>$1,893.26</del>
+                                                              $1,362.81 </h4>
+                          </div>
+
+                        </div>
+                  </div>
+                            </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <hr class="offset-lg">
 
     <div class="product">

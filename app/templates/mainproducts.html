@@ -18,41 +18,7 @@
   </div>
   <!-- Page Content-->
   <div class="container padding-bottom-3x mb-1">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="shop-top-filter-wrapper">
-                    <div class="row">
-                        <div class="col-md-10 gd-text-sm-center">
-                            <div class="sptfl">
-                                <div class="quickFilter">
-                                    <h4 class="quickFilter-title"><i class="fas fa-filter"></i>Quick filter</h4>
-                                    <ul id="quick_filter">
-                                        <li><a datahref=""><i class="icon-chevron-right pr-2"></i>All products </a></li>
-                                        <li class=""><a href="javascript:;" data-href="feature"><i class="icon-chevron-right pr-2"></i>Featured products </a></li>
-                                        <li class=""><a href="javascript:;" data-href="best"><i class="icon-chevron-right pr-2"></i>Best sellers </a></li>
-                                        <li class=""><a href="javascript:;" data-href="top"><i class="icon-chevron-right pr-2"></i>Top rated </a></li>
-                                        <li class=""><a href="javascript:;" data-href="new"><i class="icon-chevron-right pr-2"></i>New Arrival </a></li>
-                                    </ul>
-                                </div>
-                                <div class="shop-sorting">
-                                    <label for="sorting">Sort by:</label>
-                                    <select class="form-control" id="sorting">
-                                    <option value="">All Products</option>
-                                    <option value="low_to_high" >Low - High Price</option>
-                                    <option value="high_to_low" >High - Low Price</option>
-                                    </select><span class="text-muted">Showing:</span><span>1 - 16 items</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2 gd-text-sm-center">
-                            <div class="shop-view"><a class="list-view active " data-step="grid" href="javascript:;" data-href="catalog46e8.html?view_check=grid"><i class="fas fa-th-large"></i></a>
-                                <a class="list-view " href="javascript:;" data-step="list" data-href="catalog31cf.html?view_check=list"><i class="fas fa-list"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
 
         <div class="row g-3">
 
@@ -89,9 +55,9 @@
 
                         <div class="product-card-body">
                             <div class="product-category">
-                                <a href="catalogbcbe.html?category=Beauty--Personal-Care">Beauty &amp; Personal Care</a>
+                                <a href="{{ url_for('product.products', product_id=prod.id) }}">Beauty &amp; Personal Care</a>
                             </div>
-                            <h3 class="product-title"><a href="product/p5lHome-Use-Beauty-Device-Face-Massager-Facial-Lifting-Tool-Beauty-AntiAgingbD.html">
+                            <h3 class="product-title"><a href="{{ url_for('product.products', product_id=prod.id) }}">
                                 {{ prod.name }}
                             </a></h3>
                             <div class="rating-stars">

@@ -54,7 +54,7 @@ def catalog():
 def cart():
     if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
         flash(f'please {current_user.username} Your cart is empty, add product to your cart to access this page...', 'warning')
-        return redirect(url_for('product.product'))
+        return redirect(url_for('main.index'))
     subtotal = 0
     grandtotal = 0
     for key, product, in session['Shoppingcart'].items():
